@@ -21,14 +21,15 @@
     <script>
         setTimeout(function () { document.getElementById('silinecek').remove(); }, 3000);
     </script>
-    <div style="margin: 0;
+    <div id="foto" v-if="seen" style="margin: 0;
     padding: 0;">
         <a href="#kampanyalar">
-            <div class="enUstFoto">
-                <span class="fotoKapat"><i class="fa fa-times"></i></span>
+            <div  class="enUstFoto">
+                <span class="fotoKapat"><i v-on:click="seen=false" class="fa fa-times"></i></span>
             </div>
         </a>
     </div>
+    
     <header class="enUstBaslik">
         <div class="container">
             <div class="row">

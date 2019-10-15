@@ -1,3 +1,10 @@
+var foto = new Vue({
+  el: '#foto',
+  data: {
+    seen: true
+  }
+})
+
 
 var slideIndex = 1;
 showDivs(slideIndex);
