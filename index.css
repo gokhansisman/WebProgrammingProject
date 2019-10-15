@@ -1,0 +1,179 @@
+.cakSatanlarBolum a:hover, .ilhamBolum a:hover, .bolumPopulerKategoriler a:hover, .cikintiBlogu a:hover, .top-header .ortaAlan .bireysel:hover, .top-header .ortaAlan .alisverisSepeti:hover, a {
+    text-decoration: none;
+}
+
+.aramaListesi li, .anaFont, .cakSatanlarBolum .bracket {
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.cakSatanlarBolum, .ilhamBolum, .bolumAnaUrunler, .bolumPopulerKategoriler, .top-banner {
+    margin-top: 20px;
+}
+
+.cakSatanlarBolum ul {
+    margin-bottom: 0;
+    padding-left: 15px;
+    margin-top: 30px;
+}
+
+.cakSatanlarBolum li {
+    height: 170px;
+}
+
+.cakSatanlarBolum .bolumBasligi {
+    background: url(../img/separator.png) right center no-repeat;
+}
+
+	.cakSatanlarBolum .bolumBasligi span {
+        background-color: #f6f6f6;
+        padding-right: 25px;
+		}
+
+	
+.cakSatanlarBolum ul li {
+    text-align: center;
+    float: left;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.cakSatanlarBolum .bracket {
+    width: 40px;
+    height: 43px;
+    background: url(../img/strip.png) center center no-repeat;
+    color: #fff;
+    font-weight: 700;
+    font-size: 23px;
+    margin: auto;
+    position: relative;
+    top: -5px;
+    text-align: center;
+}
+
+.cakSatanlarBolum .bracket-outer {
+    width: 40px;
+    height: 43px;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    margin-top: 5px;
+}
+
+.cakSatanlarBolum ul li a .bracket, .cakSatanlarBolum ul li a .bracket-outer {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.cakSatanlarBolum ul li a:hover .bracket-outer {
+    -webkit-perspective: 150px;
+    perspective: 150px;
+    bottom: -28px;
+}
+
+.cakSatanlarBolum ul li a:hover .bracket {
+    -webkit-transform: rotateX(55deg);
+    transform: rotateX(55deg);
+}
+
+.cakSatanlarBolum a {
+    position: relative;
+    top: 5px;
+}
+
+.cakSatanlarBolum a {
+    position: relative;
+    top: 5px;
+}
+
+.bolumBasligi {
+    color: #4e4e4e;
+    text-transform: capitalize;
+    font-weight: 300;
+}
+
+.permalink, .ilhamBolum .permalink, .cakSatanlarBolum .permalink, .cikintiBlogu .permalink {
+    text-align: right;
+    margin-top: 30px;
+    text-transform: capitalize;
+}
+
+.ilhamBolum .ayirici, .ayirici2, .cikintiBlogu .ayirici {
+    height: 19px;
+    background: url(../img/separator.png) center center repeat-x;
+}
+
+.ilhamBolum .permalink .u-url, .cikintiBlogu .permalink .u-url {
+    color: #cdcdcd;
+}
+ 
+	.ilhamBolum .permalink .u-url:hover, .cikintiBlogu .permalink .u-url:hover {
+        color: #303030;
+    }
+	
+.ilhamBolum .ayirici, .cikintiBlogu .ayirici {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ilhamBolum .urunBlogu, .cikintiBlogu .urunBlogu {
+    text-align: center;
+}
+
+	    .ilhamBolum .urunBlogu .urunİci, .cikintiBlogu .urunBlogu .urunİci {
+        border-radius: 7px;
+        background-color: #fff;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 2px solid transparent;
+        -webkit-transition: border .3s;
+        transition: border .3s;
+		}
+	
+		.ilhamBolum .cikintiBlogu .urunİci:hover, .cikintiBlogu .urunBlogu .urunİci:hover {
+            border-color: #febf00;
+        }
+
+        .ilhamBolum .cikintiBlogu .urunİci .p-brand, .cikintiBlogu .urunBlogu .urunİci .p-brand {
+            color: #6c6c6c;
+        }
+
+        .ilhamBolum .cikintiBlogu .urunİci .p-price, .cikintiBlogu .urunBlogu .urunİci .p-price {
+            color: #ff7100;
+            font-weight: 700;
+            font-size: 18px;
+        }
+	
+.ilhamBolum .urunBlogu .urunİci .eskiUcret, .cikintiBlogu .urunBlogu .urunİci .eskiUcret {
+    color: #a8a8a8;
+    text-decoration: line-through;
+}
+
+.child-slider, .client-logos, .cikintiBlogu {
+    background-color: #fff;
+}
+
+.cikintiBlogu {
+    padding-bottom: 20px;
+}
+
+.cikintiBlogu .rating {
+    margin-left: 7px;
+    margin-top: -10px;
+}
+
+.urunİci, .cikintiBlogu .urunİci {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.cikintiBlogu .urunBlogu {
+    margin-top: 10px;
+}
+
+.cikintiBlogu .cikintiIcerigi {
+    border-top: 1px solid #f6f6f6;
+    margin-top: 1px;
+}
+
+
+
