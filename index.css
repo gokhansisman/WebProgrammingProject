@@ -4,7 +4,7 @@
         z-index: 2147483647;
         width: 100%;
         height: 100%;
-    
+        
 }
 #gifEkran {
     background-color: #fff;
@@ -349,6 +349,7 @@
             }            
 .anaMenu{
    background-color: #fff;
+   
 }
 .anaMenu li, .anaMenu ul li {
    position: relative;
@@ -411,6 +412,26 @@ float: left;
        color: #000;
    }
 
+   .rating-f .br-widget {
+    height: 24px;
+}
+
+    .rating-f .br-widget a {
+        background: url(./resimler/star.png);
+        width: 24px;
+        height: 24px;
+        display: block;
+        float: left;
+    }
+
+        .rating-f .br-widget a:hover {
+            cursor: default;
+        }
+
+        .rating-f .br-widget a.br-active, .rating-f .br-widget a.br-selected {
+            background-position: 0 24px;
+            cursor: pointer;
+        }
 
 .cokSatanlar{
    display: -webkit-box;
