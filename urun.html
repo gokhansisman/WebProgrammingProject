@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Online kitap alışveriş siteniz
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="css/bootstrap3860.css?v=1" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="Content/user/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" type="image/ico" href="Content/user/img/favicon.ico" />
+    <link href="stylebea6.css" rel="stylesheet" />
+
+<body>
+    <div class="acilisEkrani" id="silinecek">
+        <div id="gifEkran">
+            <div id="durum">&nbsp;</div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function () { document.getElementById('silinecek').remove(); }, 3000);
+    </script>
+    <div id="foto" v-if="seen" style="margin: 0;
+    padding: 0;">
+        <a href="#kampanyalar">
+            <div class="enUstFoto">
+                <span class="fotoKapat"><i v-on:click="seen=false" class="fa fa-times"></i></span>
+            </div>
+        </a>
+    </div>
+
+    <header class="enUstBaslik">
+        <div class="container">
+            <div class="row">
+                <div class="baslik-genel" style=" position: static !important;
+                height: auto !important;  font-weight: 400;
+                line-height: 1.1;">
+                    <nav style="line-height: 1;">
+                        <ul>
+                            <li style="float: left;"><a href="#musteri-hizmetleri" style="color: #7c7c7c;
+                            margin-right: 15px;">MÜŞTERİ HİZMETLERİ </a></li>
+                            <li style="float: left;">
+                                <a href="#siparis-takip" style="color: #D91E18;"><i class="fa fa-bars"
+                                        style="color: #D91E18;"></i><strong>&nbsp;SİPARİŞ
+                                        TAKİBİ&nbsp;&nbsp;&nbsp;</strong></a>
+                            </li>
+                            <li style="float: left;"><a href="#hakkimizda" style="color: #7c7c7c;
+                                margin-right: 15px;">Hakkımızda</a></li>
+                            <li style="float: left;"><a href="#iletisim" style="color: #7c7c7c;
+                                margin-right: 15px;">İletişim</a></li>
+                        </ul>
+                    </nav>
+                    <!-- sağ üst menü -->
+                    <!--class = nav pull right ile sağa veya aşağıdaki şekilde olabilir.-->
+                    <div style="position: absolute;right:10%">
+                        <div>
+                            <ul>
+                                <li>Hoş geldin ziyaretçi <b><a href="#giris" style="color: #337ab7;">giriş
+                                            yapın</a></b>ya da
+                                    <b><a href="#kayit" style="color: #337ab7;">kayıt olun</a></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="orta" style="margin-top: 15px;">
+                    <div class="logo col-md-3" style=" margin-top: 30px;">
+                        <a href="index.html" title="Okuoku.com">
+                            <img src="resimler/logo.png" />
+                        </a>
+                    </div>
+
+                    <div class="arama col-md-5 ">
+                        <div>
+                            <div style="margin-left: 5px;
+                            font-size: 15px;
+                            color: #febf00;">
+                                <b>50 TL Üzeri Kargo Bedava!</b>
+                            </div>
+                            <div style="float: right;
+                             margin-left: 15px;
+                            font-size: 14px;
+                            color: #febf00;">
+                                <b>Kapıda Nakit Ödeme</b>
+                            </div>
+                        </div>
+                        <input type="search" placeholder="Ara..." />
+                        <a class="send">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-5" style="text-align: right;">
+                        <div style="float:left">
+                            <a href="#giris" class="sepet" style="margin-top: 40px;">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="girisYapYazisi">SEPETİM</span>
+                                <p>
+                                    Giriş yapmalısınız.
+                                </p>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="ozellik" style=" height: 25px;
+                            color: #6f6d6e;
+                            font-family: verdana;
+                            font-weight: 300;
+                            margin-bottom: 5px !important;
+                            margin-top: 40px;
+                            text-decoration: none !important;
+                            padding-left: 3px;
+                            " href="#giris">
+                                <i class="fa fa-user"></i>
+                                <span class="girisYapYazisi">GİRİŞ YAP</span>
+                                <p class="kayitol">KAYIT OL</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div>
+            <nav class="anaMenu" style="min-height: 0;
+            margin-bottom: 0; border-bottom: 2px solid #febf00;
+            border-top: 1px solid #dfe0e2;
+            height: 53px;
+            ">
+                <div class="container">
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="index.html" title="Okuoku.com"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li><a href="#yeni-cikanlar">Yeni
+                                    Çıkanlar</a></li>
+                            <li><a href="#yayinevi/listele">Yayınevleri</a></li>
+                            <li><a href="#kategori/listele">Kategoriler</a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#kampanyalar.html" style="color: #5cb85c;"><i class="fa fa-gift "
+                                        style="color: #5cb85c;">
+                                    </i><strong>&nbsp;KAMPANYALAR</strong></a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#avantajli-setler" style="color: #2196F3;"><strong>&nbsp;AVANTAJLI
+                                        SETLER</strong></a></li>
+                            <li style=" text-transform: uppercase;"><a style="height:50px" href="#kitapkulubu"><img
+                                        src="resimler/kulupmenu.png" /></a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#kampanyali-yayinevleri">
+                                    <i class="fa fa-paper-plane-o" style="color: #3598DC;"></i><strong
+                                        style="color:#3598DC;">&nbsp;<span style="color:#9C27B0">Ç</span><span
+                                            style="color:#FF9800">O</span><span style="color:#4CAF50">C</span><span
+                                            style="color:#03A9F4">U</span><span
+                                            style="color:#f44336">K</span></strong></a></li>
+                            <li style="float: right;bottom: 50px;left: 36px;"><a href="#favorilerim"><i
+                                        class="fa fa-heart " style="color: #D91E18;"></i><strong
+                                        style="color: #D91E18;">&nbsp;FAVORİLERİM</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <body>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-9" style="bottom: 22px;">
+                <section class="single-page-item" style="margin-left: 190px;">
+                    <div class="h-product">
+                        <div class="col-sm-4">
+                            <a class="fancybox" href="resimler/small-issiz-kadinlar-sokagi.jpg"
+                                data-fancybox-group="gallery" title="Issız Kadınlar Sokağı">
+                                <img id="imgDefaultImage" class="singleort img-responsive"
+                                    src="resimler/small-issiz-kadinlar-sokagi.jpg" alt="Issız Kadınlar Sokağı"
+                                    itemprop="image" /></a>
+                        </div>
+                        <div class="col-sm-8" id="divProductDetail">
+                            <h3 id="productName" class="p-name no-margin-top texort" itemprop="name">Issız Kadınlar
+                                Sokağı</h3>
+                            <div class="row hidden-sm hidden-xs">
+                                <div class="col-lg-12 detaykat">
+                                    <div class="col-lg-12">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stars">
+                                <div class="brand">
+                                    <div class="input select rating-f">
+                                        <select id="slcVote" style="display: none;">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                        <div class="br-widget"><a href="#" data-rating-value="1" data-rating-text="1"
+                                                class="br-selected"><span></span></a><a href="#" data-rating-value="2"
+                                                data-rating-text="2" class="br-selected"><span></span></a><a href="#"
+                                                data-rating-value="3" data-rating-text="3"
+                                                class="br-selected"><span></span></a><a href="#" data-rating-value="4"
+                                                data-rating-text="4" class="br-current br-selected"><span></span></a><a
+                                                href="#" data-rating-value="5" data-rating-text="5"
+                                                class=""><span></span></a></div>
+                                    </div>
+                                    <div id="addCommentDiv">
+                                        <a id="aAddComment"><i class="fa fa-comment"></i>Yorum ekle </a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7 col-xs-12 price-wrap">
+                                    <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                                        <div class="col-xs-6 mobsol">
+                                            <p>Yayınevi:</p>
+                                        </div>
+                                        <div class="col-xs-6 mobsag">
+                                            <a itemprop="url" href="/urun/listele/yayinevi/dogan-kitap/9118">
+                                                <p class="p-name" itemprop="name">Doğan Kitap</p>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+
+                                        <div class="col-xs-6 mobsol">
+                                            <p><strong>Yazar:</strong></p>
+                                        </div>
+                                        <div class="col-xs-6 mobsag">
+
+
+                                            <a itemprop="url" href="/urun/listele/yazar/1/canan-tan/80240">
+                                                <p class="p-name" itemprop="name"><strong>Canan Tan</strong></p>
+                                            </a>
+
+                                        </div>
+
+
+                                        <div class="col-xs-6 mobsol">
+                                            <p><strong>Editör:</strong></p>
+                                        </div>
+                                        <div class="col-xs-6 mobsag">
+
+
+                                            <a href="/urun/listele/editor/5/nejla-feroglu/282509">
+                                                <p class="p-name"><strong>Nejla Feroğlu</strong></p>
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-xs-6 text-left mobsol">
+                                        <p><strong>Barkod:</strong></p>
+                                    </div>
+                                    <div class="col-xs-6 text-left">
+                                        <p itemprop="isbn">9786050954333</p>
+                                    </div>
+
+                                    <div class="col-xs-6 text-left mobsol" style="float: none;">
+                                        <p><strong>Tedarik Süresi:</strong></p>
+                                    </div>
+                                    <div class="col-xs-6 text-left" style="float: right;bottom: 40px;">
+                                        <p>3 gün</p>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xs-12 text-left">
+                                        <div class="pretiketalan">
+
+                                        </div>
+                                        <div class="review hidden-xs">
+
+                                        </div>
+
+
+                                        <div class="review hidden-xs">
+                                            <strong>50 TL üzeri kargo bedava!</strong>
+                                        </div>
+
+                                        <div class="sosyalalan">
+                                            <div class="socialmediashare">
+                                                <div class="fb-share-button"
+                                                    data-href="https://www.okuoku.com/urun/detay/kitap/issiz-kadinlar-sokagi/1401532"
+                                                    data-type="button_count"></div>
+                                            </div>
+                                            <div class="socialmediashare">
+                                                <a href="https://twitter.com/share" class="twitter-share-button"
+                                                    data-via="https://twitter.com/okuokucom" data-lang="tr"
+                                                    data-size="medium" data-related="https://twitter.com/okuokucom"
+                                                    data-count="true">Tweet</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-12 price-wrap" itemprop="offers" itemscope
+                                    itemtype="http://schema.org/Offer">
+                                    <h1 class="p-price" itemprop="price">19,<span class="krs">44 TL</span>
+                                        <meta itemprop="priceCurrency" content="₺" />
+                                    </h1>
+
+                                    <p class="old-price">27,00 TL</p>
+                                    <p class="discount">%28 İNDİRİM</p>
+                                    <p class="save"><span class="hidden-xs">KAZANCINIZ: 7,56 TL</span><span
+                                            class="visible-xs">- 7,56 TL</span></p>
+
+                                    <div class="row">
+                                        <div class="addto-cart-button" id="app">
+                                            <!--https://codepen.io/IamManchanda/pen/GMJxXN-->
+                                            <input type="button" @click="decreaseCounter(1)" id="minus" value="-" />
+
+                                            <input type="number" v-model="counter" min="1" max="1000" />
+
+                                            <input type="button" @click="increaseCounter(20)" value="+" />
+                                        </div>
+                                        <div class="addto-cart-button">
+
+                                            <a id="aAddToBasket" class="u-url"><i class="fa fa-shopping-cart"></i>SEPETE
+                                                EKLE</a>
+
+                                        </div>
+                                        <div class="addto-cart-button">
+                                            <a id="aAddToFavoriteProducts" class="add-to-favorites"><i
+                                                    class="fa fa-heart-o"></i>Favorilere Ekle</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <style>
+                    /* Style the tabs */
+                    .tabs {
+                        border-bottom: 0;
+                    }
+
+                    .tabs ul {
+                        list-style-type: none;
+                        margin-left: 20px;
+                    }
+
+                    .tabs a {
+                        border-top: 2px solid #ffd304;
+                        color: #333;
+                        border-radius: 0;
+                    }
+
+                    .tabs a:last-child {
+                        border-right: 1px solid #ccc;
+                    }
+
+                    /* Change background color of tabs on hover */
+                    .tabs a:hover {
+                        border-top-color: #ffd304;
+                        background-color: #fff;
+                        border-bottom: 0;
+                    }
+
+                    /* Styling for active tab */
+                    .tabs a.active {
+                        border-top: 2px solid #ffd304;
+                        border-bottom-color: transparent;
+                        color: #333;
+                        border-left: 0;
+                        top: -10px;
+                        border-right-color: #eee;
+                    }
+
+                    /* Style the tab content */
+                    .tabcontent {
+                        padding: 30px;
+                        border: 1px solid #ccc;
+                        border-radius: 10px;
+                        box-shadow: 3px 3px 6px #e1e1e1
+                    }
+                </style>
+                <div class="mixed single-page-desc" style="margin-left: 190px;" id="tabler">
+                    <section class="section-main-products clearfix">
+                        <div class="main-content-block">
+                            <div class="tab-block">
+                                <ul class="nav nav-tabs" id="tabler">
+                                    <li >
+                                        <a v-on:click="activetab=1"
+                                            v-bind:class="[ activetab === 1 ? 'tikladik' : 'tiklanmadanOnce' ]">Açıklama</a></li>
+                                    <li><a v-on:click="activetab=2"
+                                            v-bind:class="[ activetab === 2 ? 'tikladik' : '' ]">Yorumlar</a></li>
+                                    <li><a v-on:click="activetab=3"
+                                            v-bind:class="[ activetab === 3 ? 'tikladik' : '' ]">Hata Bildir</a></li>
+                                    <li><a v-on:click="activetab=4"
+                                        v-bind:class="[ activetab === 4 ? 'tikladik' : '' ]">Taksit Seçenekleri</a></li>
+                                    
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active clearfix" v-if="activetab === 1">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td><strong>Dil</strong></td>
+                                                        <td>Türkçe</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Kağıt Cinsi</strong></td>
+                                                        <td>2. Hamur</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Cilt Tipi</strong></td>
+                                                        <td>Ciltsiz</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Basım Yeri</strong></td>
+                                                        <td>İstanbul</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Yayın Tarihi</strong></td>
+                                                        <td>Ekim-2019</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Baskı Sayısı</strong></td>
+                                                        <td itemprop="bookEdition">1. Baskı</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Sayfa Sayısı</strong></td>
+                                                        <td itemprop="numberOfPages">144</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Ölçü</strong></td>
+                                                        <td>13,5x19,5 </td>
+                                                    </tr>
+
+                                                </table>
+                                            </div>
+                                            <h4 class="name">Issız Kadınlar Sokağı</h4>
+                                            <div itemprop="description">
+                                                <p>Taciz, tecavüz, şiddet mağduru 20 kadının hikayesi…</p>
+                                                <p>Erkek dişi sorulmaz, muhabbetin dilinde<br />Hakk’ın yarattığı her
+                                                    şey yerli yerinde<br />Bizim nazarımızda, kadın erkek farkı
+                                                    yok<br />Noksanlıkla eksiklik, senin görüşlerinde</p>
+                                                <p>- Hacı Bektaş Veli</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="tab-pane comments" v-if="activetab === 2">
+                                            <ul>
+
+                                                <li>
+                                                    <h4 class="title">Bu ürüne henüz yorum yapılmamış. İlk yorum yapan
+                                                        siz
+                                                        olabilirsiniz... </h4>
+                                                </li>
+
+                                            </ul>
+                                            <div>
+
+                                                <ul>
+                                                    <li>
+                                                        <h4 class="title"><a
+                                                                href="/Kullanici/Giris/?/urun/detay/kitap/issiz-kadinlar-sokagi/1401532">Yorum
+                                                                yapabilmek için giriş yapmalısınız.</a></h4>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="tab-pane" v-if="activetab === 3">
+
+                                            <ul>
+                                                <li>
+                                                    <h4 class="title"><a
+                                                            href="/Kullanici/Giris/?/urun/detay/kitap/issiz-kadinlar-sokagi/1401532">Hata
+                                                            bildirimi için giriş yapmalısınız.</a></h4>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                    <div style="height: 400px; overflow: scroll; overflow-x: hidden; padding-bottom: 50px;"
+                                        role="tabpanel" class="tab-pane " v-if="activetab===4">
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="ekbar clearfix" style="margin-left: 190px;">
+                    <div class="okusec">
+                        <div class="radio clearfix">
+                            <input type="radio" name="okuma" id="sec0" class="regular-radio" value="0"
+                                disabled="disabled" />
+                            <label for="sec0"></label>
+                            <label for="sec0">
+                                Okuyacağım <span id="spnInfo0">(2)</span>
+                            </label>
+                        </div>
+                        <div class="radio clearfix">
+                            <input type="radio" name="okuma" id="sec1" class="regular-radio" value="1"
+                                disabled="disabled" />
+                            <label for="sec1"></label>
+                            <label for="sec1">
+                                Okuyorum <span id="spnInfo1">(0)</span>
+                            </label>
+                        </div>
+                        <div class="radio clearfix">
+                            <input type="radio" name="okuma" id="sec2" class="regular-radio" value="2"
+                                disabled="disabled" />
+                            <label for="sec2"></label>
+                            <label for="sec2">
+                                Okudum <span id="spnInfo2">(0)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <section class="section-inspiration clearfix" id="sectionEmployee1" style="margin-left: 190px;">
+                    <div>
+                        <div class="col-lg-12">
+                            <h3 class="section-title">Yazar 'CANAN TAN' Diğer Kitaplar</h3>
+                        </div>
+                        <div class="separator col-lg-12 hidden-xs"></div>
+                        <div class="clearfix"></div>
+                        <div id="divEmployee1" class="product-block clearfix"
+                            style="background-color: white; padding-top: 10px; padding-bottom: 10px;">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-inspiration clearfix" id="sectionManufacturer" style="margin-left: 190px;">
+                    <div>
+                        <div class="col-lg-12">
+                            <h3 class="section-title">Yayınevi 'DOĞAN KİTAP' Diğer Kitaplar</h3>
+                        </div>
+                        <div class="separator col-lg-12 hidden-xs"></div>
+                        <div class="clearfix"></div>
+                        <div id="divManufacturer" class="product-block clearfix"
+                            style="background-color: white; padding-top: 10px; padding-bottom: 10px; min-height: 430px !important;">
+                        </div>
+                    </div>
+                </section>
+                <section class="section-inspiration clearfix" id="sectionType1" style="margin-left: 190px;">
+                    <div>
+                        <div class="col-lg-12">
+                            <h3 class="section-title">Bu Ürünü İnceleyenlerin, İncelediği Diğer Ürünler</h3>
+                        </div>
+                        <div class="separator col-lg-12 hidden-xs"></div>
+                        <div class="clearfix"></div>
+                        <div id="divType1" class="product-block clearfix"
+                            style="background-color: white; padding-top: 10px; padding-bottom: 10px; min-height: 430px !important;">
+                        </div>
+                    </div>
+                </section>
+                <section class="section-inspiration clearfix" id="sectionType2">
+                    <div>
+                        <div class="col-lg-12" style="margin-left:172px;">
+                            <h3 class="section-title">Bu Ürünü Satın Alanların, Aldıkları Diğer Ürünler</h3>
+                        </div>
+                        <div class="separator col-lg-12 hidden-xs"></div>
+                        <div class="clearfix"></div>
+                        <div id="divType2" class="product-block clearfix"
+                            style="background-color: white; padding-top: 10px; padding-bottom: 10px; margin-left: 190px;">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3" style="bottom: 22px;">
+                <div class="banner01">
+                    <div class="row">
+                        <div class="col-lg-12" id="divBannersGroupId4">
+                            <div class="mg-image hidden-xs hidden-sm"><a
+                                    href=" /urun/listele/cok-satanlar-2019/214"><img
+                                        class="sp-image lazyload img-responsive" src="resimler/1102.jpg"
+                                        style="display: block;"></a></div>
+                            <div class="mg-image hidden-xs hidden-sm"><a
+                                    href=" https://www.okuoku.com/kampanyasayfa/kitapkulubu/22"><img
+                                        class="sp-image lazyload img-responsive" src="resimler/667.jpg"
+                                        style="display: block;"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+    </body>
+    <div style="margin-top: 20px;
+        background-color: #ececec;
+        width: 1540px;
+        padding-top: 40px;
+        padding-bottom: 40px;">
+        <footer class="bilgi-altbilgi">
+            <div class="container">
+            </div>
+        </footer>
+        <footer class="alt-altbilgi">
+            <div class="container">
+                <div class="col-sm-3" style="margin-top: 10px;">
+                    <a href="index.html" title="Okuoku.com">
+                        <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
+                    </a>
+                </div>
+                <div class="hizli-erisim">
+                    <ul>
+                        <li style="color:#337ab7"><a><i class="fa fa-barcode"></i>Orjinal
+                                Ürün</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-check"></i>Güvenli
+                                Ödeme</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-lock"></i>Güvenli
+                                Alışveriş</a></li>
+                        <li style="color:#337ab7"><a href="#siparis"><i class="fa fa-bars"></i>Sipariş
+                                Takibi</a></li>
+                    </ul>
+                </div>
+                <div class="sosyal-butonlar">
+                    <h4>Sosyal Medya</h4>
+                    <ul style="margin-left: 82%;">
+                        <li><a target="_blank" href="https://www.facebook.com/okuoku1">
+                                <img class="img-responsive" src="resimler/facebook.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://twitter.com/okuokucom">
+                                <img class="img-responsive" src="resimler/twitter.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/okuoku1">
+                                <img class="img-responsive" src="resimler/instagram.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="index.js"></script>
+
+    </form>
+    </div>
+
+
+</html>

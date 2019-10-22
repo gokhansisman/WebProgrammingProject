@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>
@@ -12,6 +13,7 @@
     <link href="index.css" rel="stylesheet" />
     <link href="Content/user/css/font-awesome.css" rel="stylesheet" />
     <link rel="icon" type="image/ico" href="Content/user/img/favicon.ico" />
+
 <body>
     <div class="acilisEkrani" id="silinecek">
         <div id="gifEkran">
@@ -24,12 +26,12 @@
     <div id="foto" v-if="seen" style="margin: 0;
     padding: 0;">
         <a href="#kampanyalar">
-            <div  class="enUstFoto">
+            <div class="enUstFoto">
                 <span class="fotoKapat"><i v-on:click="seen=false" class="fa fa-times"></i></span>
             </div>
         </a>
     </div>
-    
+
     <header class="enUstBaslik">
         <div class="container">
             <div class="row">
@@ -69,7 +71,7 @@
                             <img src="resimler/logo.png" />
                         </a>
                     </div>
-                   
+
                     <div class="arama col-md-5 ">
                         <div>
                             <div style="margin-left: 5px;
@@ -124,6 +126,7 @@
             <nav class="anaMenu" style="min-height: 0;
             margin-bottom: 0; border-bottom: 2px solid #febf00;
             border-top: 1px solid #dfe0e2;
+            height: 53px;
             ">
                 <div class="container">
                     <div>
@@ -151,7 +154,7 @@
                                             style="color:#FF9800">O</span><span style="color:#4CAF50">C</span><span
                                             style="color:#03A9F4">U</span><span
                                             style="color:#f44336">K</span></strong></a></li>
-                            <li><a href="#favorilerim"><i class="fa fa-heart " style="color: #D91E18;"></i><strong
+                            <li style="float: right;bottom: 50px;left: 36px;"><a href="#favorilerim"><i class="fa fa-heart " style="color: #D91E18;"></i><strong
                                         style="color: #D91E18;">&nbsp;FAVORİLERİM</strong></a></li>
                         </ul>
                     </div>
@@ -200,7 +203,7 @@
                                 onclick="currentDiv2(3)"></span>
                             <span class="w3-badge demo2 w3-border w3-transparent w3-hover-white"
                                 onclick="currentDiv2(4)"></span>
-                                <span class="w3-badge demo2 w3-border w3-transparent w3-hover-white"
+                            <span class="w3-badge demo2 w3-border w3-transparent w3-hover-white"
                                 onclick="currentDiv2(5)"></span>
                         </div>
                     </div>
@@ -214,11 +217,11 @@
         </div>
         <div class="kitaplar">
             <div id="divBannersGroupId3">
-               
+
             </div>
             <section class="cakSatanlarBolum">
                 <div class="container">
-                    
+
                     <div id="ulProductsGroupId1Top10">
                         <section class="cakSatanlarBolum">
                             <div class="container">
@@ -259,7 +262,7 @@
                                                                 font-size: 18px;">24,38 TL</span>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div style="position: relative;
                                                 height: 50px;">
                                                             <div class="bracket-outer">
@@ -277,8 +280,7 @@
                                                         href="#kitap/kibrit-copu-mezarligi">
                                                         <div class="siralamaliYer siraliKitaplar">
                                                             <div class="kitapUstGorunum">
-                                                                <img style="max-width: 97px;"
-                                                                    alt="Fareler ve İnsanlar"
+                                                                <img style="max-width: 97px;" alt="Fareler ve İnsanlar"
                                                                     src="resimler/middle-fareler-ve-insanlar.jpg"
                                                                     style="display: block;">
                                                             </div>
@@ -299,7 +301,7 @@
                                                                 font-size: 18px;">10,72 TL</span>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div style="position: relative;
                                                 height: 50px;">
                                                             <div class="bracket-outer">
@@ -310,7 +312,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div style="position: relative;
                                 top: -50px;
                                 z-index: -5;
@@ -345,7 +347,7 @@
         </div>
         <div class="container">
             <div class="row">
-               
+
                 <div class="col-md-3 col-md-push-9">
                 </div>
                 <!--ÇOK SATANLAR'IN ALTI -->
@@ -353,7 +355,7 @@
                     <div id="divProductGroups">
                     </div>
                     <div class="govdeKitap">
-                        
+
                         <div class="kitaplar">
                             <div style="border-top: 1px solid #f6f6f6;
                         margin-top: 1px;">
@@ -411,6 +413,17 @@
                                                                 <option selected="" value="4">4</option>
                                                                 <option value="5">5</option>
                                                             </select>
+                                                            <div class="br-widget"><a href="#" data-rating-value="1"
+                                                                    data-rating-text="1"
+                                                                    class="br-selected"><span></span></a><a href="#"
+                                                                    data-rating-value="2" data-rating-text="2"
+                                                                    class="br-selected"><span></span></a><a href="#"
+                                                                    data-rating-value="3" data-rating-text="3"
+                                                                    class="br-selected"><span></span></a><a href="#"
+                                                                    data-rating-value="4" data-rating-text="4"
+                                                                    class="br-current br-selected"><span></span></a><a
+                                                                    href="#" data-rating-value="5" data-rating-text="5"
+                                                                    class=""><span></span></a></div>
 
                                                         </div>
                                                     </div>
@@ -474,6 +487,17 @@
                                                                 <option value="4">4</option>
                                                                 <option value="5">5</option>
                                                             </select>
+                                                            <div class="br-widget"><a href="#" data-rating-value="1"
+                                                                    data-rating-text="1"
+                                                                    class="br-selected"><span></span></a><a href="#"
+                                                                    data-rating-value="2" data-rating-text="2"
+                                                                    class="br-selected"><span></span></a><a href="#"
+                                                                    data-rating-value="3" data-rating-text="3"
+                                                                    class="br-selected"><span></span></a><a href="#"
+                                                                    data-rating-value="4" data-rating-text="4"
+                                                                    class="br-current br-selected"><span></span></a><a
+                                                                    href="#" data-rating-value="5" data-rating-text="5"
+                                                                    class=""><span></span></a></div>
 
                                                         </div>
                                                     </div>
@@ -577,6 +601,28 @@
                                                                                                     <option value="5">5
                                                                                                     </option>
                                                                                                 </select>
+                                                                                                <div class="br-widget">
+                                                                                                    <a href="#"
+                                                                                                        data-rating-value="1"
+                                                                                                        data-rating-text="1"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="2"
+                                                                                                        data-rating-text="2"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="3"
+                                                                                                        data-rating-text="3"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="4"
+                                                                                                        data-rating-text="4"
+                                                                                                        class="br-current br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="5"
+                                                                                                        data-rating-text="5"
+                                                                                                        class=""><span></span></a>
+                                                                                                </div>
 
                                                                                             </div>
                                                                                         </div>
@@ -660,6 +706,28 @@
                                                                                                     <option value="5">5
                                                                                                     </option>
                                                                                                 </select>
+                                                                                                <div class="br-widget">
+                                                                                                    <a href="#"
+                                                                                                        data-rating-value="1"
+                                                                                                        data-rating-text="1"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="2"
+                                                                                                        data-rating-text="2"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="3"
+                                                                                                        data-rating-text="3"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="4"
+                                                                                                        data-rating-text="4"
+                                                                                                        class="br-current br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="5"
+                                                                                                        data-rating-text="5"
+                                                                                                        class=""><span></span></a>
+                                                                                                </div>
 
                                                                                             </div>
                                                                                         </div>
@@ -762,6 +830,28 @@
                                                                                                     <option value="5">5
                                                                                                     </option>
                                                                                                 </select>
+                                                                                                <div class="br-widget">
+                                                                                                    <a href="#"
+                                                                                                        data-rating-value="1"
+                                                                                                        data-rating-text="1"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="2"
+                                                                                                        data-rating-text="2"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="3"
+                                                                                                        data-rating-text="3"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="4"
+                                                                                                        data-rating-text="4"
+                                                                                                        class="br-current br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="5"
+                                                                                                        data-rating-text="5"
+                                                                                                        class=""><span></span></a>
+                                                                                                </div>
 
                                                                                             </div>
                                                                                         </div>
@@ -868,6 +958,28 @@
                                                                                                     <option value="5">5
                                                                                                     </option>
                                                                                                 </select>
+                                                                                                <div class="br-widget">
+                                                                                                    <a href="#"
+                                                                                                        data-rating-value="1"
+                                                                                                        data-rating-text="1"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="2"
+                                                                                                        data-rating-text="2"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="3"
+                                                                                                        data-rating-text="3"
+                                                                                                        class="br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="4"
+                                                                                                        data-rating-text="4"
+                                                                                                        class="br-current br-selected"><span></span></a><a
+                                                                                                        href="#"
+                                                                                                        data-rating-value="5"
+                                                                                                        data-rating-text="5"
+                                                                                                        class=""><span></span></a>
+                                                                                                </div>
 
                                                                                             </div><br>
                                                                                         </div>
@@ -893,7 +1005,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <!-- sizden esinlendik kısmı-->
@@ -960,6 +1072,22 @@
                                                                         <option value="4">4</option>
                                                                         <option value="5">5</option>
                                                                     </select>
+                                                                    <div class="br-widget"><a href="#"
+                                                                            data-rating-value="1" data-rating-text="1"
+                                                                            class="br-selected"><span></span></a><a
+                                                                            href="#" data-rating-value="2"
+                                                                            data-rating-text="2"
+                                                                            class="br-selected"><span></span></a><a
+                                                                            href="#" data-rating-value="3"
+                                                                            data-rating-text="3"
+                                                                            class="br-selected"><span></span></a><a
+                                                                            href="#" data-rating-value="4"
+                                                                            data-rating-text="4"
+                                                                            class="br-current br-selected"><span></span></a><a
+                                                                            href="#" data-rating-value="5"
+                                                                            data-rating-text="5"
+                                                                            class=""><span></span></a></div>
+
                                                                 </div>
                                                             </div>
                                                             <span class="yuzde">%
@@ -992,7 +1120,7 @@
                             </div>
                         </footer>
                         <footer class="alt-altbilgi">
-                            <div class="container" >
+                            <div class="container">
                                 <div class="col-sm-3" style="margin-top: 10px;">
                                     <a href="index.html" title="Okuoku.com">
                                         <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
@@ -1010,27 +1138,27 @@
                                                 Takibi</a></li>
                                     </ul>
                                 </div>
-                                <div class="sosyal-butonlar" >
+                                <div class="sosyal-butonlar">
                                     <h4>Sosyal Medya</h4>
                                     <ul style="margin-left: 82%;">
                                         <li><a target="_blank" href="https://www.facebook.com/okuoku1">
-                                                <img class="img-responsive" src="resimler/facebook.png"
-                                                    alt="icon" width="32" height="32" /></a></li>
+                                                <img class="img-responsive" src="resimler/facebook.png" alt="icon"
+                                                    width="32" height="32" /></a></li>
                                         <li><a target="_blank" href="https://twitter.com/okuokucom">
-                                                <img class="img-responsive" src="resimler/twitter.png"
-                                                    alt="icon" width="32" height="32" /></a></li>
+                                                <img class="img-responsive" src="resimler/twitter.png" alt="icon"
+                                                    width="32" height="32" /></a></li>
                                         <li><a target="_blank" href="https://www.instagram.com/okuoku1">
-                                                <img class="img-responsive" src="resimler/instagram.png"
-                                                    alt="icon" width="32" height="32" /></a></li>
+                                                <img class="img-responsive" src="resimler/instagram.png" alt="icon"
+                                                    width="32" height="32" /></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </footer>
 
                     </div>
-                   
+
                     <script src="index.js"></script>
-                   
+
                     </form>
                 </div>
 </body>
