@@ -3187,6 +3187,7 @@ th .product_title_col {
     border-left: 0;
     top: -10px;
     border-right-color: #eee;
+    
 }
 .tikladik{
     border-top: 2px solid #ffd304;
@@ -3195,6 +3196,7 @@ th .product_title_col {
     border-left: 0;
     top: -10px;
     border-right-color: #eee;
+    background-color: #fff;
 }
 .tiklanmadanOnce{
     border-top: 2px solid #ffd304;

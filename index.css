@@ -412,11 +412,11 @@ float: left;
        color: #000;
    }
 
-   .rating-f .br-widget {
+   .oyYildiz .oy-Sembol {
     height: 24px;
 }
 
-    .rating-f .br-widget a {
+    .oyYildiz .oy-Sembol a {
         background: url(./resimler/star.png);
         width: 24px;
         height: 24px;
@@ -424,11 +424,11 @@ float: left;
         float: left;
     }
 
-        .rating-f .br-widget a:hover {
+        .oyYildiz .oy-Sembol a:hover {
             cursor: default;
         }
 
-        .rating-f .br-widget a.br-active, .rating-f .br-widget a.br-selected {
+        .oyYildiz .oy-Sembol a.oy-Verilmis, .oyYildiz .oy-Sembol a.oy-Secilen {
             background-position: 0 24px;
             cursor: pointer;
         }
@@ -701,6 +701,48 @@ float: left;
     margin-right: 10px;
 }
 
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    border-top: 2px solid #ffd304;
+    border-bottom-color: transparent;
+    color: #333;
+    border-left: 0;
+    top: -10px;
+    border-right-color: #eee;
+    
+}
+.tikladik{
+    border-top: 2px solid #ffd304;
+    border-bottom-color: transparent;
+    color: #333;
+    border-left: 0;
+    top: -10px;
+    border-right-color: #eee;
+    background-color: #fff;
+}
+.tiklanmadanOnce{
+    border-top: 2px solid #ffd304;
+    color: #333;
+    border-radius: 0;
+}
+
+.nav-tabs > li > a {
+    border-top: 2px solid #ffd304;
+    color: #333;
+    border-radius: 0;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+    .nav-tabs > li > a:hover {
+        border-top-color: #ffd304;
+        background-color: #fff;
+        border-bottom: 0;
+    }
+
+
+
 
 .cakSatanlarBolum a:hover, .ilhamBolum a:hover, .bolumPopulerKategoriler a:hover, .cikintiBlogu a:hover, .top-header .ortaAlan .bireysel:hover, .top-header .ortaAlan .alisverisSepeti:hover, a {
     text-decoration: none;
@@ -827,7 +869,11 @@ float: left;
     margin-left: 10px;
     margin-bottom: 15px;
 }
-
+.ekbar{
+    margin: 20px 0 30px;
+    background-color: #fff;
+    width: 100%;
+}
 .resimWrap {
     display: inline-block;
     position: relative;

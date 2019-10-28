@@ -9,6 +9,19 @@ var tabler = new Vue({
   data: { activetab: 1 },
 });
 new Vue({
+  el: '#urunDetay',
+  data: {
+    object: {
+      kitapAdi: 'Issız Kadınlar Sokağı',
+      kitapYazar: 'Canan Tan',
+      kitapYayinEvi: 'Doğan Kitap',
+      kitapYuzde:"28",
+      kitapFiyat:"27,00",
+      kitapIndirimliFiyat:"19,44"
+    }
+  }
+});
+new Vue({
   el: '#app',
   data: { 
     counter: 0 // Initial Value 
@@ -105,7 +118,7 @@ function showDivs2(n) {
 })();
 
 new Vue({
-  el: '#v-for-object',
+  el: '#kitap1',
   data: {
     object: {
       kitapAdi: 'Issız Kadınlar Sokağı',
@@ -116,9 +129,9 @@ new Vue({
       kitapIndirimliFiyat:"19,44"
     }
   }
-})
+});
 new Vue({
-  el: '#v-for-object2',
+  el: '#kitap2',
   data: {
     object: {
       kitapAdi: 'Başka Bir Şey',
@@ -129,9 +142,9 @@ new Vue({
       kitapIndirimliFiyat:"15,40"
     }
   }
-})
+});
 new Vue({
-  el: '#v-for-object3',
+  el: '#kitap3',
   data: {
     object: {
       kitapAdi: 'Aklımda Hep Sen',
@@ -142,9 +155,10 @@ new Vue({
       kitapIndirimliFiyat:"18,85"
     }
   }
-})
+});
+
 new Vue({
-  el: '#v-for-object4',
+  el: '#kitap4',
   data: {
     object: {
       kitapAdi: 'Sıradan Bir Gün',
@@ -155,9 +169,9 @@ new Vue({
       kitapIndirimliFiyat:"17,15"
     }
   }
-})
+});
 new Vue({
-  el: '#v-for-object5',
+  el: '#kitap5',
   data: {
     object: {
       kitapAdi: 'Platon Bir Gün Bir Karikatür Çizer',
@@ -170,7 +184,7 @@ new Vue({
   }
 })
 new Vue({
-  el: '#v-for-object6',
+  el: '#kitap6',
   data: {
     object: {
       kitapAdi: 'Bitkilerin Bildikleri',
@@ -183,7 +197,7 @@ new Vue({
   }
 })
 new Vue({
-  el: '#v-for-object7',
+  el: '#kitap7',
   data: {
     object: {
       kitapAdi: 'Her Şey Seninle Başlar',
