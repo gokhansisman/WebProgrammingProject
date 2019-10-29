@@ -1,9 +1,48 @@
+new Vue({
+  el: '#kitap10',
+  data: {
+    object: {
+      kitapAdi: 'Issız Kadınlar Sokağı',
+      kitapYazar: 'Canan Tan',
+      kitapYayinEvi: 'Doğan Kitap',
+      kitapYuzde:"28",
+      kitapFiyat:"27,00",
+      kitapIndirimliFiyat:"19,44"
+    }
+  }
+});
 var foto = new Vue({
   el: '#foto',
   data: {
     seen: true
   }
 })
+new Vue({
+  el: '#kitap1',
+  data: {
+    object: {
+      kitapAdi: 'Issız Kadınlar Sokağı',
+      kitapYazar: 'Canan Tan',
+      kitapYayinEvi: 'Doğan Kitap',
+      kitapYuzde:"28",
+      kitapFiyat:"27,00",
+      kitapIndirimliFiyat:"19,44"
+    }
+  }
+});
+new Vue({
+  el: '#kitap2',
+  data: {
+    object: {
+      kitapAdi: 'Başka Bir Şey',
+      kitapYazar: 'Ahmet Batman',
+      kitapYayinEvi: 'Destek Yayınları',
+      kitapYuzde:"35",
+      kitapFiyat:"22,00",
+      kitapIndirimliFiyat:"15,40"
+    }
+  }
+});
 var tabler = new Vue({
   el: '#tabler',
   data: { activetab: 1 },
@@ -17,7 +56,78 @@ new Vue({
       kitapYayinEvi: 'Doğan Kitap',
       kitapYuzde:"28",
       kitapFiyat:"27,00",
-      kitapIndirimliFiyat:"19,44"
+      kitapIndirimliFiyat:"19,44",
+      kitapEditor:"Nejla Feroğlu"
+    }
+  }
+});
+
+
+
+
+new Vue({
+  el: '#kitap3',
+  data: {
+    object: {
+      kitapAdi: 'Aklımda Hep Sen',
+      kitapYazar: 'Kürşat Başar',
+      kitapYayinEvi: 'Everest Yayınları',
+      kitapYuzde:"35",
+      kitapFiyat:"29,00",
+      kitapIndirimliFiyat:"18,85"
+    }
+  }
+});
+
+new Vue({
+  el: '#kitap4',
+  data: {
+    object: {
+      kitapAdi: 'Sıradan Bir Gün',
+      kitapYazar: 'Yekta Kopan',
+      kitapYayinEvi: 'Can Yayınları',
+      kitapYuzde:"30",
+      kitapFiyat:"24,50",
+      kitapIndirimliFiyat:"17,15"
+    }
+  }
+});
+new Vue({
+  el: '#kitap5',
+  data: {
+    object: {
+      kitapAdi: 'Platon Bir Gün Bir Karikatür Çizer',
+      kitapYazar: 'Thomas Cathcart , Daniel Klein',
+      kitapYayinEvi: 'Aylak Kitap',
+      kitapYuzde:"20",
+      kitapFiyat:"29,50",
+      kitapIndirimliFiyat:"23,60"
+    }
+  }
+});
+new Vue({
+  el: '#kitap6',
+  data: {
+    object: {
+      kitapAdi: 'Bitkilerin Bildikleri',
+      kitapYazar: 'Daniel Chamovitz',
+      kitapYayinEvi: 'Metis Yayınları',
+      kitapYuzde:"23",
+      kitapFiyat:"21,50",
+      kitapIndirimliFiyat:"16,56"
+    }
+  }
+});
+new Vue({
+  el: '#kitap7',
+  data: {
+    object: {
+      kitapAdi: 'Her Şey Seninle Başlar',
+      kitapYazar: 'Mümin Sekman',
+      kitapYayinEvi: 'Alfa Yayınları',
+      kitapYuzde:"35",
+      kitapFiyat:"20,00",
+      kitapIndirimliFiyat:"13,00"
     }
   }
 });
@@ -116,96 +226,3 @@ function showDivs2(n) {
         },1000);
     }
 })();
-
-new Vue({
-  el: '#kitap1',
-  data: {
-    object: {
-      kitapAdi: 'Issız Kadınlar Sokağı',
-      kitapYazar: 'Canan Tan',
-      kitapYayinEvi: 'Doğan Kitap',
-      kitapYuzde:"28",
-      kitapFiyat:"27,00",
-      kitapIndirimliFiyat:"19,44"
-    }
-  }
-});
-new Vue({
-  el: '#kitap2',
-  data: {
-    object: {
-      kitapAdi: 'Başka Bir Şey',
-      kitapYazar: 'Ahmet Batman',
-      kitapYayinEvi: 'Destek Yayınları',
-      kitapYuzde:"35",
-      kitapFiyat:"22,00",
-      kitapIndirimliFiyat:"15,40"
-    }
-  }
-});
-new Vue({
-  el: '#kitap3',
-  data: {
-    object: {
-      kitapAdi: 'Aklımda Hep Sen',
-      kitapYazar: 'Kürşat Başar',
-      kitapYayinEvi: 'Everest Yayınları',
-      kitapYuzde:"35",
-      kitapFiyat:"29,00",
-      kitapIndirimliFiyat:"18,85"
-    }
-  }
-});
-
-new Vue({
-  el: '#kitap4',
-  data: {
-    object: {
-      kitapAdi: 'Sıradan Bir Gün',
-      kitapYazar: 'Yekta Kopan',
-      kitapYayinEvi: 'Can Yayınları',
-      kitapYuzde:"30",
-      kitapFiyat:"24,50",
-      kitapIndirimliFiyat:"17,15"
-    }
-  }
-});
-new Vue({
-  el: '#kitap5',
-  data: {
-    object: {
-      kitapAdi: 'Platon Bir Gün Bir Karikatür Çizer',
-      kitapYazar: 'Thomas Cathcart , Daniel Klein',
-      kitapYayinEvi: 'Aylak Kitap',
-      kitapYuzde:"20",
-      kitapFiyat:"29,50",
-      kitapIndirimliFiyat:"23,60"
-    }
-  }
-})
-new Vue({
-  el: '#kitap6',
-  data: {
-    object: {
-      kitapAdi: 'Bitkilerin Bildikleri',
-      kitapYazar: 'Daniel Chamovitz',
-      kitapYayinEvi: 'Metis Yayınları',
-      kitapYuzde:"23",
-      kitapFiyat:"21,50",
-      kitapIndirimliFiyat:"16,56"
-    }
-  }
-})
-new Vue({
-  el: '#kitap7',
-  data: {
-    object: {
-      kitapAdi: 'Her Şey Seninle Başlar',
-      kitapYazar: 'Mümin Sekman',
-      kitapYayinEvi: 'Alfa Yayınları',
-      kitapYuzde:"35",
-      kitapFiyat:"20,00",
-      kitapIndirimliFiyat:"13,00"
-    }
-  }
-})
