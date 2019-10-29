@@ -21,12 +21,12 @@ new Vue({
   el: '#haftaninKitap1',
   data: {
     object: {
-      kitapAdi: 'Issız Kadınlar Sokağı',
-      kitapYazar: 'Canan Tan',
-      kitapYayinEvi: 'Doğan Kitap',
-      kitapYuzde:"28",
-      kitapFiyat:"27,00",
-      kitapIndirimliFiyat:"19,44"
+      kitapAdi: 'Dün Bugün Yarın ve Sonsuza Kadar',
+      kitapYazar: 'Zeynep Sahra',
+      kitapYayinEvi: 'Ren Kitap',
+      kitapYuzde:"40",
+      kitapFiyat:"30,00",
+      kitapIndirimliFiyat:"23,40"
     }
   }
 });
@@ -34,12 +34,12 @@ new Vue({
   el: '#haftaninKitap2',
   data: {
     object: {
-      kitapAdi: 'Issız Kadınlar Sokağı',
-      kitapYazar: 'Canan Tan',
-      kitapYayinEvi: 'Doğan Kitap',
-      kitapYuzde:"28",
-      kitapFiyat:"27,00",
-      kitapIndirimliFiyat:"19,44"
+      kitapAdi: 'İnan Bana',
+      kitapYazar: 'J.P. Delaney',
+      kitapYayinEvi: 'Pena Yayınları',
+      kitapYuzde:"27",
+      kitapFiyat:"45,00",
+      kitapIndirimliFiyat:"32,85"
     }
   }
 });
@@ -47,12 +47,51 @@ new Vue({
   el: '#haftaninKitap3',
   data: {
     object: {
-      kitapAdi: 'Issız Kadınlar Sokağı',
-      kitapYazar: 'Canan Tan',
-      kitapYayinEvi: 'Doğan Kitap',
+      kitapAdi: 'Nal Köyü',
+      kitapYazar: 'Mustafa İsen',
+      kitapYayinEvi: 'Kapı Yayınları',
       kitapYuzde:"28",
-      kitapFiyat:"27,00",
-      kitapIndirimliFiyat:"19,44"
+      kitapFiyat:"18,00",
+      kitapIndirimliFiyat:"12,96"
+    }
+  }
+});
+new Vue({
+  el: '#haftaninKitap4',
+  data: {
+    object: {
+      kitapAdi: 'Ağacın Hafızası',
+      kitapYazar: 'Tina Valles',
+      kitapYayinEvi: 'Can Yayınları',
+      kitapYuzde:"30",
+      kitapFiyat:"27,50",
+      kitapIndirimliFiyat:"19,25"
+    }
+  }
+});
+new Vue({
+  el: '#haftaninKitap5',
+  data: {
+    object: {
+      kitapAdi: 'Cadı Bayramı Özel',
+      kitapYazar: 'Kolektif',
+      kitapYayinEvi: 'Gerekli Şeyler',
+      kitapYuzde:"40",
+      kitapFiyat:"12,00",
+      kitapIndirimliFiyat:"7,20"
+    }
+  }
+});
+new Vue({
+  el: '#haftaninKitap6',
+  data: {
+    object: {
+      kitapAdi: 'Ejdarha Cadı',
+      kitapYazar: 'Yasmine Galenorn',
+      kitapYayinEvi: 'Martı Yayınları',
+      kitapYuzde:"45",
+      kitapFiyat:"29,00",
+      kitapIndirimliFiyat:"15,95"
     }
   }
 });
