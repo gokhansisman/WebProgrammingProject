@@ -14,6 +14,30 @@
     <link href="Content/user/css/font-awesome.css" rel="stylesheet" />
     <link rel="icon" type="image/ico" href="Content/user/img/favicon.ico" />
     <link href="stylebea6.css" rel="stylesheet" />
+    <style>
+        .ekbar {
+            margin: 20px 0 30px;
+            background-color: #fff;
+            width: 100%;
+        }
+        .ekbar .radio label {
+            float: left;
+        }
+
+            .ekbar .radio label:nth-of-type(2) {
+                padding: 2px 0 0 10px;
+            }
+
+        .ekbar .radio {
+            display: table-cell;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .ekbar .regular-radio:checked + label:after {
+            background-color: #4CAF50;
+        }
+    </style>
 
 <body>
     <div class="acilisEkrani" id="silinecek">
@@ -520,7 +544,7 @@
                                                     <tr>
                                                         <th class="product_title_col" style="text-align: center;"
                                                             colspan="3">
-                                                            <img src="/Content/user/img/bank/akbank.gif"
+                                                            <img src="resimler/akbank.gif"
                                                                 style="height: 33px">
                                                         </th>
                                                     </tr>
@@ -603,7 +627,7 @@
                     </section>
                 </div>
                 <!--OKUYORUM OKUMUYORUM KISMI -->
-                <div class="ekbar clearfix" style="margin-left: 190px;width: 814px;">
+                <div class="ekbar clearfix" style="margin-left: 190px; ">
                     <div class="okusec">
                         <div class="radio clearfix">
                             <input type="radio" name="okuma" id="sec0" class="regular-radio" value="0"
@@ -647,20 +671,20 @@
                                     <div class="kitaplar">
                                         <div>
                                             <div class="kitapCerceve clearfix sekil">
-                                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" id="kitap10">
+                                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" id="urunSayfasiKitaplari1">
                                                     <div class="kitapIcerik" style="height: 430px !important;">
                                                         <div class="prod">
                                                             <a style="text-decoration: none !important;"
-                                                                href="#aklımda-hep-sen"></a>
+                                                                href="#iz"></a>
                                                             <div class="prod">
                                                                 <a style="text-decoration: none !important;"
-                                                                    href="#aklımda-hep-sen">
+                                                                    href="#iz">
                                                                     <div class="pr">
                                                                         <span class="resimWrap resimWrap-gorunur"
                                                                             style="width:145px;">
                                                                             <img style="display: block;" width="145"
-                                                                                class="mx" alt="Aklımda Hep Sen"
-                                                                                src="resimler/middle-aklimda-hep-sen.jpg">
+                                                                                class="mx" alt="iz"
+                                                                                src="resimler/middle-iz.jpg">
                                                                         </span></div>
                                                                 </a></div>
                                                             <a style="text-decoration: none !important;" href="#">
@@ -743,40 +767,328 @@
                 </section>
 
                 <section class="ilhamBolum clearfix" style="margin-left: 190px;">
-                    <div id="v-for-object">
+                    <div>
                         <div class="col-lg-12">
                             <h3 class="section-title">Yayınevi 'DOĞAN KİTAP' Diğer Kitaplar</h3>
                         </div>
-                        <div class="ayirici col-lg-12 hidden-xs"></div>
+                        <div class="ayirici col-lg-12 "></div>
                         <div class="clearfix"></div>
                         <div class="urunBlogu clearfix"
-                            style="background-color: white; padding-top: 10px; padding-bottom: 10px; min-height: 430px !important;">
-                        </div>
-                    </div>
+                            style="background-color: white; padding-top: 10px; padding-bottom: 10px;">
+                            <div class="govdeKitap">
+                                <div class="cikintiBlogu">
+                                    <div class="kitaplar">
+                                        <div>
+                                            <div class="kitapCerceve clearfix sekil">
+                                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" id="urunSayfasiKitaplari2">
+                                                    <div class="kitapIcerik" style="height: 430px !important;">
+                                                        <div class="prod">
+                                                            <a style="text-decoration: none !important;"
+                                                                href="#portakalin-yuzyili"></a>
+                                                            <div class="prod">
+                                                                <a style="text-decoration: none !important;"
+                                                                    href="#portakalin-yuzyili">
+                                                                    <div class="pr">
+                                                                        <span class="resimWrap resimWrap-gorunur"
+                                                                            style="width:145px;">
+                                                                            <img style="display: block;" width="145"
+                                                                                class="mx" alt="portakalin-yuzyili"
+                                                                                src="resimler/big-raffi-portakal-portakalin-yuzyili.jpg">
+                                                                        </span></div>
+                                                                </a></div>
+                                                            <a style="text-decoration: none !important;" href="#">
+                                                                <h5 style="height: 32px;
+                                                                                        color: #6f6d6e;
+                                                                                        font-family: verdana;
+                                                                                        font-weight: 300;
+                                                                                        margin-bottom: 5px !important;
+                                                                                        margin-top: 15px;
+                                                                                        text-decoration: none !important;
+                                                                                        padding-left: 3px;
+                                                                                        padding-right: 3px;">
+                                                                    {{object.kitapAdi}}</h5>
+                                                            </a>
+                                                            <h6 style="
+                                                                                    height: 13px;
+                                                                                    font-size: 10px;
+                                                                                    margin-top: 5px;
+                                                                                    ">
+                                                                <span><a href="#">
+                                                                        <span>{{object.kitapYazar}}</span></a></span>
+                                                            </h6>
+                                                            <h6 style="
+                                                                                    height: 13px;
+                                                                                    font-size: 10px;
+                                                                                    margin-top: 5px;
+                                                                                    ">
+                                                                <span><a href="#">
+                                                                        <span>{{object.kitapYayinEvi}}</span></a></span>
+                                                            </h6>
+                                                            <div class="yildizlar clearfix">
+                                                                <div class="input select oyYildiz"
+                                                                    style="margin-left: 15%;">
+                                                                    <select class="slcVote" style="display: none;">
+                                                                        <option value="1">1
+                                                                        </option>
+                                                                        <option value="2">2
+                                                                        </option>
+                                                                        <option selected="" value="3">3
+                                                                        </option>
+                                                                        <option value="4">4
+                                                                        </option>
+                                                                        <option value="5">5
+                                                                        </option>
+                                                                    </select>
+                                                                    <div class="oy-Sembol">
+                                                                        <a href="#" data-rating-value="1"
+                                                                            data-rating-text="1"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="2"
+                                                                            data-rating-text="2"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="3"
+                                                                            data-rating-text="3"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="4"
+                                                                            data-rating-text="4"
+                                                                            class="br-current oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="5"
+                                                                            data-rating-text="5"
+                                                                            class=""><span></span></a>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <span
+                                                                class="yuzde">%{{object.kitapYuzde}}<span>indirim</span></span>
+                                                            <div class="top-eksi"><span
+                                                                    class="eski-fiyat">{{object.kitapFiyat}}
+                                                                    TL</span>
+                                                                <span class="yeniFiyat">{{object.kitapIndirimliFiyat}}
+                                                                    TL</span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                 </section>
-                <section class="section-inspiration clearfix" id="sectionType1" style="margin-left: 190px;">
-                    <div id="v-for-object">
+                <section class="ilhamBolum clearfix" style="margin-left: 190px;">
+                    <div>
                         <div class="col-lg-12">
                             <h3 class="section-title">Bu Ürünü İnceleyenlerin, İncelediği Diğer Ürünler</h3>
                         </div>
-                        <div class="separator col-lg-12 hidden-xs"></div>
+                        <div class="ayirici col-lg-12 "></div>
                         <div class="clearfix"></div>
-                        <div id="divType1" class="product-block clearfix"
-                            style="background-color: white; padding-top: 10px; padding-bottom: 10px; min-height: 430px !important;">
-                        </div>
-                    </div>
+                        <div class="urunBlogu clearfix"
+                            style="background-color: white; padding-top: 10px; padding-bottom: 10px;">
+                            <div class="govdeKitap">
+                                <div class="cikintiBlogu">
+                                    <div class="kitaplar">
+                                        <div>
+                                            <div class="kitapCerceve clearfix sekil">
+                                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" id="urunSayfasiKitaplari3">
+                                                    <div class="kitapIcerik" style="height: 430px !important;">
+                                                        <div class="prod">
+                                                            <a style="text-decoration: none !important;"
+                                                                href="#kendine-hos-geldin"></a>
+                                                            <div class="prod">
+                                                                <a style="text-decoration: none !important;"
+                                                                    href="#kendine-hos-geldin">
+                                                                    <div class="pr">
+                                                                        <span class="resimWrap resimWrap-gorunur"
+                                                                            style="width:145px;">
+                                                                            <img style="display: block;" width="145"
+                                                                                class="mx" alt="Kendine Hoş Geldin"
+                                                                                src="resimler/big-kendine-hos-geldin.jpg">
+                                                                        </span></div>
+                                                                </a></div>
+                                                            <a style="text-decoration: none !important;" href="#">
+                                                                <h5 style="height: 32px;
+                                                                                        color: #6f6d6e;
+                                                                                        font-family: verdana;
+                                                                                        font-weight: 300;
+                                                                                        margin-bottom: 5px !important;
+                                                                                        margin-top: 15px;
+                                                                                        text-decoration: none !important;
+                                                                                        padding-left: 3px;
+                                                                                        padding-right: 3px;">
+                                                                    {{object.kitapAdi}}</h5>
+                                                            </a>
+                                                            <h6 style="
+                                                                                    height: 13px;
+                                                                                    font-size: 10px;
+                                                                                    margin-top: 5px;
+                                                                                    ">
+                                                                <span><a href="#">
+                                                                        <span>{{object.kitapYazar}}</span></a></span>
+                                                            </h6>
+                                                            <h6 style="
+                                                                                    height: 13px;
+                                                                                    font-size: 10px;
+                                                                                    margin-top: 5px;
+                                                                                    ">
+                                                                <span><a href="#">
+                                                                        <span>{{object.kitapYayinEvi}}</span></a></span>
+                                                            </h6>
+                                                            <div class="yildizlar clearfix">
+                                                                <div class="input select oyYildiz"
+                                                                    style="margin-left: 15%;">
+                                                                    <select class="slcVote" style="display: none;">
+                                                                        <option value="1">1
+                                                                        </option>
+                                                                        <option value="2">2
+                                                                        </option>
+                                                                        <option selected="" value="3">3
+                                                                        </option>
+                                                                        <option value="4">4
+                                                                        </option>
+                                                                        <option value="5">5
+                                                                        </option>
+                                                                    </select>
+                                                                    <div class="oy-Sembol">
+                                                                        <a href="#" data-rating-value="1"
+                                                                            data-rating-text="1"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="2"
+                                                                            data-rating-text="2"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="3"
+                                                                            data-rating-text="3"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="4"
+                                                                            data-rating-text="4"
+                                                                            class="br-current oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="5"
+                                                                            data-rating-text="5"
+                                                                            class=""><span></span></a>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <span
+                                                                class="yuzde">%{{object.kitapYuzde}}<span>indirim</span></span>
+                                                            <div class="top-eksi"><span
+                                                                    class="eski-fiyat">{{object.kitapFiyat}}
+                                                                    TL</span>
+                                                                <span class="yeniFiyat">{{object.kitapIndirimliFiyat}}
+                                                                    TL</span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                 </section>
-                <section class="section-inspiration clearfix" id="sectionType2">
-                    <div id="v-for-object">
-                        <div class="col-lg-12" style="margin-left:172px;">
+                <section class="ilhamBolum clearfix" style="margin-left: 190px;">
+                    <div>
+                        <div class="col-lg-12">
                             <h3 class="section-title">Bu Ürünü Satın Alanların, Aldıkları Diğer Ürünler</h3>
                         </div>
-                        <div class="separator col-lg-12 hidden-xs"></div>
+                        <div class="ayirici col-lg-12 "></div>
                         <div class="clearfix"></div>
-                        <div id="divType2" class="product-block clearfix"
-                            style="background-color: white; padding-top: 10px; padding-bottom: 10px; margin-left: 190px;">
-                        </div>
-                    </div>
+                        <div class="urunBlogu clearfix"
+                            style="background-color: white; padding-top: 10px; padding-bottom: 10px;">
+                            <div class="govdeKitap">
+                                <div class="cikintiBlogu">
+                                    <div class="kitaplar">
+                                        <div>
+                                            <div class="kitapCerceve clearfix sekil">
+                                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" id="urunSayfasiKitaplari4">
+                                                    <div class="kitapIcerik" style="height: 430px !important;">
+                                                        <div class="prod">
+                                                            <a style="text-decoration: none !important;"
+                                                                href="#kalbimin-can-mayasi"></a>
+                                                            <div class="prod">
+                                                                <a style="text-decoration: none !important;"
+                                                                    href="#kalbimin-can-mayasi">
+                                                                    <div class="pr">
+                                                                        <span class="resimWrap resimWrap-gorunur"
+                                                                            style="width:145px;">
+                                                                            <img style="display: block;" width="145"
+                                                                                class="mx" alt="kalbimin-can-mayasi"
+                                                                                src="resimler/big-kalbimin-can-mayasi.jpg">
+                                                                        </span></div>
+                                                                </a></div>
+                                                            <a style="text-decoration: none !important;" href="#">
+                                                                <h5 style="height: 32px;
+                                                                                        color: #6f6d6e;
+                                                                                        font-family: verdana;
+                                                                                        font-weight: 300;
+                                                                                        margin-bottom: 5px !important;
+                                                                                        margin-top: 15px;
+                                                                                        text-decoration: none !important;
+                                                                                        padding-left: 3px;
+                                                                                        padding-right: 3px;">
+                                                                    {{object.kitapAdi}}</h5>
+                                                            </a>
+                                                            <h6 style="
+                                                                                    height: 13px;
+                                                                                    font-size: 10px;
+                                                                                    margin-top: 5px;
+                                                                                    ">
+                                                                <span><a href="#">
+                                                                        <span>{{object.kitapYazar}}</span></a></span>
+                                                            </h6>
+                                                            <h6 style="
+                                                                                    height: 13px;
+                                                                                    font-size: 10px;
+                                                                                    margin-top: 5px;
+                                                                                    ">
+                                                                <span><a href="#">
+                                                                        <span>{{object.kitapYayinEvi}}</span></a></span>
+                                                            </h6>
+                                                            <div class="yildizlar clearfix">
+                                                                <div class="input select oyYildiz"
+                                                                    style="margin-left: 15%;">
+                                                                    <select class="slcVote" style="display: none;">
+                                                                        <option value="1">1
+                                                                        </option>
+                                                                        <option value="2">2
+                                                                        </option>
+                                                                        <option selected="" value="3">3
+                                                                        </option>
+                                                                        <option value="4">4
+                                                                        </option>
+                                                                        <option value="5">5
+                                                                        </option>
+                                                                    </select>
+                                                                    <div class="oy-Sembol">
+                                                                        <a href="#" data-rating-value="1"
+                                                                            data-rating-text="1"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="2"
+                                                                            data-rating-text="2"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="3"
+                                                                            data-rating-text="3"
+                                                                            class="oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="4"
+                                                                            data-rating-text="4"
+                                                                            class="br-current oy-Secilen"><span></span></a><a
+                                                                            href="#" data-rating-value="5"
+                                                                            data-rating-text="5"
+                                                                            class=""><span></span></a>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <span
+                                                                class="yuzde">%{{object.kitapYuzde}}<span>indirim</span></span>
+                                                            <div class="top-eksi"><span
+                                                                    class="eski-fiyat">{{object.kitapFiyat}}
+                                                                    TL</span>
+                                                                <span class="yeniFiyat">{{object.kitapIndirimliFiyat}}
+                                                                    TL</span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                 </section>
             </div>
             <div class="col-md-3" style="bottom: 22px;">

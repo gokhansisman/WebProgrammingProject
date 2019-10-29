@@ -231,7 +231,58 @@ new Vue({
     }
   }
 });
-
+new Vue({
+  el: '#urunSayfasiKitaplari1',
+  data: {
+    object: {
+      kitapAdi: 'İz',
+      kitapYazar: 'Canan Tan',
+      kitapYayinEvi: 'Altın Kitaplar',
+      kitapYuzde:"35",
+      kitapFiyat:"19,44",
+      kitapIndirimliFiyat:"12,64"
+    }
+  }
+});
+new Vue({
+  el: '#urunSayfasiKitaplari2',
+  data: {
+    object: {
+      kitapAdi: 'Raffi Portakal - Portakalın Yüzyılı',
+      kitapYazar: 'Enis Batur',
+      kitapYayinEvi: 'Doğan Kitap',
+      kitapYuzde:"28",
+      kitapFiyat:"32,41",
+      kitapIndirimliFiyat:"23,34"
+    }
+  }
+});
+new Vue({
+  el: '#urunSayfasiKitaplari3',
+  data: {
+    object: {
+      kitapAdi: 'Kendine Hoş Geldin',
+      kitapYazar: 'Miraç Çağrı Aktaş',
+      kitapYayinEvi: 'Olimpos Yayınları',
+      kitapYuzde:"30",
+      kitapFiyat:"22,00",
+      kitapIndirimliFiyat:"15,40"
+    }
+  }
+});
+new Vue({
+  el: '#urunSayfasiKitaplari4',
+  data: {
+    object: {
+      kitapAdi: 'Kendine Hoş Geldin',
+      kitapYazar: 'İclal Aydın',
+      kitapYayinEvi: 'Artemis Yayınları',
+      kitapYuzde:"35",
+      kitapFiyat:"29,00",
+      kitapIndirimliFiyat:"18,85"
+    }
+  }
+});
 
 var slideIndex = 1;
 showDivs(slideIndex);
