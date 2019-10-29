@@ -18,6 +18,45 @@ var foto = new Vue({
   }
 })
 new Vue({
+  el: '#haftaninKitap1',
+  data: {
+    object: {
+      kitapAdi: 'Issız Kadınlar Sokağı',
+      kitapYazar: 'Canan Tan',
+      kitapYayinEvi: 'Doğan Kitap',
+      kitapYuzde:"28",
+      kitapFiyat:"27,00",
+      kitapIndirimliFiyat:"19,44"
+    }
+  }
+});
+new Vue({
+  el: '#haftaninKitap2',
+  data: {
+    object: {
+      kitapAdi: 'Issız Kadınlar Sokağı',
+      kitapYazar: 'Canan Tan',
+      kitapYayinEvi: 'Doğan Kitap',
+      kitapYuzde:"28",
+      kitapFiyat:"27,00",
+      kitapIndirimliFiyat:"19,44"
+    }
+  }
+});
+new Vue({
+  el: '#haftaninKitap3',
+  data: {
+    object: {
+      kitapAdi: 'Issız Kadınlar Sokağı',
+      kitapYazar: 'Canan Tan',
+      kitapYayinEvi: 'Doğan Kitap',
+      kitapYuzde:"28",
+      kitapFiyat:"27,00",
+      kitapIndirimliFiyat:"19,44"
+    }
+  }
+});
+new Vue({
   el: '#kitap1',
   data: {
     object: {

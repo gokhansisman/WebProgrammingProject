@@ -611,6 +611,61 @@ float: left;
     -ms-transition-delay: .2s;
     transition-delay: .2s;
 }
+.sagKisimm {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.sagKisimm img {
+    max-width: 100%;
+
+}
+.sagKisim2 {
+    position: relative;
+    display: block;
+    border: none;
+}
+.sagKisimm img {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.sagKisimm:hover img {
+    opacity: 1;
+    -webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+    0% {
+        opacity: .4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.sagKisimFoto {
+    max-width: 262px;
+}
+
+.col-md-push-9 .sagKisimFoto {
+    margin-top: 30px;
+}
 
 .kitapUstGorunum {
     position: absolute;
@@ -718,6 +773,7 @@ float: left;
     top: -10px;
     border-right-color: #eee;
     background-color: #fff;
+    font-size: 14px;
 }
 .tiklanmadanOnce{
     border-top: 2px solid #ffd304;
