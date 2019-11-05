@@ -91,7 +91,6 @@
 }
 
 .enUstBaslik {
-  
    background-position: 0 center;
    padding-bottom: 18px;
    width: 100%;
@@ -1061,3 +1060,17 @@ float: left;
     font-weight: 300;
     text-align: left;
 }
+
+
+  .dropdown-child {
+    display: none !important;
+  }
+  .dropdown-child a {
+    color: red !important;
+    padding: 20px !important;;
+    text-decoration: none !important;
+    display: block !important;
+  }
+  .dropdown:hover .dropdown-child {
+    display: block !important;
+  }
