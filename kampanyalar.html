@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Kampanyalar | okuoku.com
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="css/bootstrap3860.css?v=1" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="Content/user/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" type="image/ico" href="Content/user/img/favicon.ico" />
+    <link href="stylebea6.css" rel="stylesheet" />
+
+<body>
+    <div class="acilisEkrani" id="silinecek">
+        <div id="gifEkran">
+            <div id="durum">&nbsp;</div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function () { document.getElementById('silinecek').remove(); }, 3000);
+    </script>
+    <div id="foto" v-if="seen" style="margin: 0;
+    padding: 0;">
+        <a href="#kampanyalar">
+            <div class="enUstFoto">
+                <span class="fotoKapat"><i v-on:click="seen=false" class="fa fa-times"></i></span>
+            </div>
+        </a>
+    </div>
+
+    <header class="enUstBaslik" style="z-index: 1;">
+        <div class="container">
+            <div class="row">
+                <div class="baslik-genel" style=" position: static !important;
+                height: auto !important;  font-weight: 400;
+                line-height: 1.1;">
+                    <nav style="line-height: 1;">
+                        <ul>
+                            <li style="float: left;"><a href="#musteri-hizmetleri" style="color: #7c7c7c;
+                            margin-right: 15px;">MÜŞTERİ HİZMETLERİ </a></li>
+                            <li style="float: left;">
+                                <a href="#siparis-takip" style="color: #D91E18;"><i class="fa fa-bars"
+                                        style="color: #D91E18;"></i><strong>&nbsp;SİPARİŞ
+                                        TAKİBİ&nbsp;&nbsp;&nbsp;</strong></a>
+                            </li>
+                            <li style="float: left;"><a href="#hakkimizda" style="color: #7c7c7c;
+                                margin-right: 15px;">Hakkımızda</a></li>
+                            <li style="float: left;"><a href="#iletisim" style="color: #7c7c7c;
+                                margin-right: 15px;">İletişim</a></li>
+                        </ul>
+                    </nav>
+                    <!-- sağ üst menü -->
+                    <!--class = nav pull right ile sağa veya aşağıdaki şekilde olabilir.-->
+                    <div style="position: absolute;right:10%">
+                        <div>
+                            <ul>
+                                <li>Hoş geldin ziyaretçi <b><a href="#giris" style="color: #337ab7;">giriş
+                                            yapın</a></b>ya da
+                                    <b><a href="#kayit" style="color: #337ab7;">kayıt olun</a></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="orta" style="margin-top: 15px;">
+                    <div class="logo col-md-3" style=" margin-top: 30px;">
+                        <a href="index.html" title="Okuoku.com">
+                            <img src="resimler/logo.png" />
+                        </a>
+                    </div>
+
+                    <div class="arama col-md-5 ">
+                        <div>
+                            <div style="margin-left: 5px;
+                            font-size: 15px;
+                            color: #febf00;">
+                                <b>50 TL Üzeri Kargo Bedava!</b>
+                            </div>
+                            <div style="float: right;
+                             margin-left: 15px;
+                            font-size: 14px;
+                            color: #febf00;">
+                                <b>Kapıda Nakit Ödeme</b>
+                            </div>
+                        </div>
+                        <input type="search" placeholder="Ara..." />
+                        <a class="send">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-5" style="text-align: right;">
+                        <div style="float:left">
+                            <a href="#giris" class="sepet" style="margin-top: 40px;">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="girisYapYazisi">SEPETİM</span>
+                                <p>
+                                    Giriş yapmalısınız.
+                                </p>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="ozellik" style=" height: 25px;
+                            color: #6f6d6e;
+                            font-family: verdana;
+                            font-weight: 300;
+                            margin-bottom: 5px !important;
+                            margin-top: 40px;
+                            text-decoration: none !important;
+                            padding-left: 3px;
+                            " href="#giris">
+                                <i class="fa fa-user"></i>
+                                <span class="girisYapYazisi">GİRİŞ YAP</span>
+                                <p class="kayitol">KAYIT OL</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div>
+            <nav class="anaMenu" style="min-height: 0;
+            margin-bottom: 0; border-bottom: 2px solid #febf00;
+            border-top: 1px solid #dfe0e2;
+            height: 53px;
+            ">
+
+                <div class="container">
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="index.html" title="Okuoku.com"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#yeni-cikanlar">Yeni
+                                    Çıkanlar</a>
+
+                                <a href="#yeni-cikanlar" class="dropdown-child">Kitaplar
+                                </a>
+                                <a href="#yeni-cikanlar" class="dropdown-child">Kampanyalar</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#yayinevi/listele">Yayınevleri</a>
+                                <a href="#yayinevi/listele" class="dropdown-child">Acedemia</a>
+                                <a href="#yayinevi/listele" class="dropdown-child">Adım Kitap</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#kategori/listele">Kategoriler</a>
+                                <a href="#yayinevi/listele" class="dropdown-child">Bilgisayar</a>
+                                <a href="#yayinevi/listele" class="dropdown-child">Edebiyat</a>
+                            </li>
+                            <li style=" text-transform: uppercase;" class="dropdown">
+                                <a href="#kampanyalar.html" style="color: #5cb85c;"><i class="fa fa-gift "
+                                        style="color: #5cb85c;">
+                                    </i><strong>&nbsp;KAMPANYALAR</strong></a>
+                                <a href="#yayinevi/listele" class="dropdown-child"></a>
+                            </li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#avantajli-setler" style="color: #2196F3;"><strong>&nbsp;AVANTAJLI
+                                        SETLER</strong></a></li>
+                            <li style=" text-transform: uppercase;"><a style="height:50px" href="#kitapkulubu"><img
+                                        src="resimler/kulupmenu.png" /></a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#kampanyali-yayinevleri">
+                                    <i class="fa fa-paper-plane-o" style="color: #3598DC;"></i><strong
+                                        style="color: #3598DC;">&nbsp;<span style="color:#9C27B0">Ç</span><span
+                                            style="color:#FF9800">O</span><span style="color:#4CAF50">C</span><span
+                                            style="color:#03A9F4">U</span><span
+                                            style="color:#f44336">K</span></strong></a></li>
+                            <li style="float: right;bottom: 50px;left: 36px;"><a href="#favorilerim"><i
+                                        class="fa fa-heart " style="color: #D91E18;"></i><strong
+                                        style="color: #D91E18;">&nbsp;FAVORİLERİM</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div>
+        <div class="container container-wrap">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="urun glge">
+                        <div class="titlebck">KAMPANYALAR</div>
+                        <div class="kampanyaalan">
+                            <div>
+                                <img src="resimler/firsatlari_kacirmayin_banner.png" alt="Kampanyalar Banner" />
+                            </div>
+
+                            <div class="col-sm-6 sifirla kamsol">
+                                <a href='kampanya/2019-eylul-parodi-1490-tl-kampanyasi/605.html'>
+                                    <img src="resimler/2019-eylul-parodi-1490-tl-kampanyasi.jpg"
+                                        alt="2019 Eylül Parodi 14,90 TL Kampanyası" />
+                                </a>
+                            </div>
+
+                            <div class="col-sm-6 sifirla kamsag">
+                                <a href='kampanya/2019-mayis-postiga-1290-tl-kampanyasi/582.html'>
+                                    <img src="resimler/2019-mayis-postiga-1290-tl-kampanyasi.jpg"
+                                        alt="2019 MAYIS POSTİGA 12,90 TL KAMPANYASI" />
+                                </a>
+                            </div>
+
+                            <div class="col-sm-6 sifirla kamsol">
+                                <a href='kampanya/2019-ocak-versus-ve-aylak-kitap-5-tlden-baslayan-fiyatlar/537.html'>
+                                    <img src="resimler/2019-ocak-versus-ve-aylak-kitap-5-tlden-baslayan-f.jpg"
+                                        alt="2019 Ocak Versus ve Aylak Kitap 5 TL'den Başlayan Fiyatlar" />
+                                </a>
+                            </div>
+
+                            <div class="col-sm-6 sifirla kamsag">
+                                <a href='kampanya/eylul-2018-1490-genel-kampanyasi/472.html'>
+                                    <img src="resimler/eylul-2018-1490-genel-kampanyasi.jpg"
+                                        alt="EYLÜL 2018 14.90 GENEL KAMPANYASI" />
+                                </a>
+                            </div>
+
+                            <div class="col-sm-6 sifirla kamsol">
+                                <a href='kampanya/eylul-2018-1290-genel/473.html'>
+                                    <img src="resimler/eylul-2018-1290-genel.jpg" alt="EYLÜL 2018 12,90 GENEL" />
+                                </a>
+                            </div>
+
+                            <div class="col-sm-6 sifirla kamsag">
+                                <a href='kampanya/eylul-2018-marti-790-tl-kampanyasi/484.html'>
+                                    <img src="resimler/eylul-2018-marti-790-tl-kampanyasi.jpg"
+                                        alt="EYLÜL 2018 MARTI 7,90 TL KAMPANYASI" />
+                                </a>
+                            </div>
+
+
+                            <div class="col-sm-6 sifirla kamsol">
+                                <a href='kampanyasayfa/cizgi-roman-kulubu/33.html'>
+                                    <img src="resimler/cizgi-roman.jpg" alt="Çizgi Roman" />
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <!--footerın Üstü-->
+    <div style="margin-top: 20px;
+                                    background-color: #ececec;
+                                    width: 1400px;
+                                    padding-top: 40px;
+                                    padding-bottom: 40px;">
+        <footer class="bilgi-altbilgi">
+            <div class="container">
+            </div>
+        </footer>
+        <footer class="alt-altbilgi">
+            <div class="container">
+                <div class="col-sm-3" style="margin-top: 10px;">
+                    <a href="index.html" title="Okuoku.com">
+                        <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
+                    </a>
+                </div>
+                <div class="hizli-erisim">
+                    <ul>
+                        <li style="color:#337ab7"><a><i class="fa fa-barcode"></i>Orjinal
+                                Ürün</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-check"></i>Güvenli
+                                Ödeme</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-lock"></i>Güvenli
+                                Alışveriş</a></li>
+                        <li style="color:#337ab7"><a href="#siparis"><i class="fa fa-bars"></i>Sipariş
+                                Takibi</a></li>
+                    </ul>
+                </div>
+                <div class="sosyal-butonlar">
+                    <h4>Sosyal Medya</h4>
+                    <ul style="margin-left: 82%;">
+                        <li><a target="_blank" href="https://www.facebook.com/okuoku1">
+                                <img class="img-responsive" src="resimler/facebook.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://twitter.com/okuokucom">
+                                <img class="img-responsive" src="resimler/twitter.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/okuoku1">
+                                <img class="img-responsive" src="resimler/instagram.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="index.js"></script>
+
+    </form>
+    </div>
+</body>
+
+</html>
