@@ -141,7 +141,30 @@ new Vue({
 });
 
 
-
+new Vue({
+  el: '#Yazarfiltre',
+  data: {
+    active:false
+  }
+});
+new Vue({
+  el: '#YayınEvifiltre',
+  data: {
+    active:false
+  }
+});
+new Vue({
+  el: '#KategoriFiltre',
+  data: {
+    active:false
+  }
+});
+new Vue({
+  el: '#FiyatFiltre',
+  data: {
+    active:false
+  }
+});
 
 new Vue({
   el: '#kitap3',

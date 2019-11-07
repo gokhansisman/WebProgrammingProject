@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Online kitap alışveriş siteniz
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="css/bootstrap3860.css?v=1" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="Content/user/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" type="image/ico" href="Content/user/img/favicon.ico" />
+    <link href="stylebea6.css" rel="stylesheet" />
+    <style>
+        .ekbar {
+            margin: 20px 0 30px;
+            background-color: #fff;
+            width: 100%;
+        }
+
+        .ekbar .radio label {
+            float: left;
+        }
+
+        .ekbar .radio label:nth-of-type(2) {
+            padding: 2px 0 0 10px;
+        }
+
+        .ekbar .radio {
+            display: table-cell;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .ekbar .regular-radio:checked+label:after {
+            background-color: #4CAF50;
+        }
+    </style>
+
+<body>
+    <div class="acilisEkrani" id="silinecek">
+        <div id="gifEkran">
+            <div id="durum">&nbsp;</div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function () { document.getElementById('silinecek').remove(); }, 3000);
+    </script>
+    <div id="foto" v-if="seen" style="margin: 0;
+    padding: 0;">
+        <a href="#kampanyalar">
+            <div class="enUstFoto">
+                <span class="fotoKapat"><i v-on:click="seen=false" class="fa fa-times"></i></span>
+            </div>
+        </a>
+    </div>
+
+    <header class="enUstBaslik">
+        <div class="container">
+            <div class="row">
+                <div class="baslik-genel" style=" position: static !important;
+                height: auto !important;  font-weight: 400;
+                line-height: 1.1;">
+                    <nav style="line-height: 1;">
+                        <ul>
+                            <li style="float: left;"><a href="#musteri-hizmetleri" style="color: #7c7c7c;
+                            margin-right: 15px;">MÜŞTERİ HİZMETLERİ </a></li>
+                            <li style="float: left;">
+                                <a href="#siparis-takip" style="color: #D91E18;"><i class="fa fa-bars"
+                                        style="color: #D91E18;"></i><strong>&nbsp;SİPARİŞ
+                                        TAKİBİ&nbsp;&nbsp;&nbsp;</strong></a>
+                            </li>
+                            <li style="float: left;"><a href="#hakkimizda" style="color: #7c7c7c;
+                                margin-right: 15px;">Hakkımızda</a></li>
+                            <li style="float: left;"><a href="#iletisim" style="color: #7c7c7c;
+                                margin-right: 15px;">İletişim</a></li>
+                        </ul>
+                    </nav>
+                    <!-- sağ üst menü -->
+                    <!--class = nav pull right ile sağa veya aşağıdaki şekilde olabilir.-->
+                    <div style="position: absolute;right:10%">
+                        <div>
+                            <ul>
+                                <li>Hoş geldin ziyaretçi <b><a href="#giris" style="color: #337ab7;">giriş
+                                            yapın</a></b>ya da
+                                    <b><a href="#kayit" style="color: #337ab7;">kayıt olun</a></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="orta" style="margin-top: 15px;">
+                    <div class="logo col-md-3" style=" margin-top: 30px;">
+                        <a href="index.html" title="Okuoku.com">
+                            <img src="resimler/logo.png" />
+                        </a>
+                    </div>
+
+                    <div class="arama col-md-5 ">
+                        <div>
+                            <div style="margin-left: 5px;
+                            font-size: 15px;
+                            color: #febf00;">
+                                <b>50 TL Üzeri Kargo Bedava!</b>
+                            </div>
+                            <div style="float: right;
+                             margin-left: 15px;
+                            font-size: 14px;
+                            color: #febf00;">
+                                <b>Kapıda Nakit Ödeme</b>
+                            </div>
+                        </div>
+                        <input type="search" placeholder="Ara..." />
+                        <a class="send">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-5" style="text-align: right;">
+                        <div style="float:left">
+                            <a href="#giris" class="sepet" style="margin-top: 40px;">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="girisYapYazisi">SEPETİM</span>
+                                <p>
+                                    Giriş yapmalısınız.
+                                </p>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="ozellik" style=" height: 25px;
+                            color: #6f6d6e;
+                            font-family: verdana;
+                            font-weight: 300;
+                            margin-bottom: 5px !important;
+                            margin-top: 40px;
+                            text-decoration: none !important;
+                            padding-left: 3px;
+                            " href="#giris">
+                                <i class="fa fa-user"></i>
+                                <span class="girisYapYazisi">GİRİŞ YAP</span>
+                                <p class="kayitol">KAYIT OL</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div>
+            <nav class="anaMenu" style="min-height: 0;
+            margin-bottom: 0; border-bottom: 2px solid #febf00;
+            border-top: 1px solid #dfe0e2;
+            height: 53px;
+            ">
+                <div class="container">
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="index.html" title="Okuoku.com"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li><a href="#yeni-cikanlar">Yeni
+                                    Çıkanlar</a></li>
+                            <li><a href="#yayinevi/listele">Yayınevleri</a></li>
+                            <li><a href="#kategori/listele">Kategoriler</a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#kampanyalar.html" style="color: #5cb85c;"><i class="fa fa-gift "
+                                        style="color: #5cb85c;">
+                                    </i><strong>&nbsp;KAMPANYALAR</strong></a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#avantajli-setler" style="color: #2196F3;"><strong>&nbsp;AVANTAJLI
+                                        SETLER</strong></a></li>
+                            <li style=" text-transform: uppercase;"><a style="height:50px" href="#kitapkulubu"><img
+                                        src="resimler/kulupmenu.png" /></a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#kampanyali-yayinevleri">
+                                    <i class="fa fa-paper-plane-o" style="color: #3598DC;"></i><strong
+                                        style="color:#3598DC;">&nbsp;<span style="color:#9C27B0">Ç</span><span
+                                            style="color:#FF9800">O</span><span style="color:#4CAF50">C</span><span
+                                            style="color:#03A9F4">U</span><span
+                                            style="color:#f44336">K</span></strong></a></li>
+                            <li style="float: right;bottom: 50px;left: 36px;"><a href="#favorilerim"><i
+                                        class="fa fa-heart " style="color: #D91E18;"></i><strong
+                                        style="color: #D91E18;">&nbsp;FAVORİLERİM</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div>
+
+        <div>
+            <div class="container container-wrap">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div id="divFilter">
+                            <div id="YayınEvifiltre" class="filtresag">
+                                <div data-toggle="collapse" v-on:click="active=!active" data-target="#ulManufacturersType2" class="titlebck"
+                                    aria-expanded="true">Yayınevi Filtrele</div>
+                                <ul v-bind:class="[ active === true ? 'aramalist collapse' : 'aramalist collapse in' ]" aria-expanded="true">
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer13650"><label
+                                                for="checkboxManufacturer13650"></label><label
+                                                for="checkboxManufacturer13650">Sokak Kitapları</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(7)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer8731"><label
+                                                for="checkboxManufacturer8731"></label><label
+                                                for="checkboxManufacturer8731">Ayrıntı Yayınları</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(5)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer110312"><label
+                                                for="checkboxManufacturer110312"></label><label
+                                                for="checkboxManufacturer110312">Gece Akademi</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(3)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer9381"><label
+                                                for="checkboxManufacturer9381"></label><label
+                                                for="checkboxManufacturer9381">Gece Kitaplığı</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(3)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer9640"><label
+                                                for="checkboxManufacturer9640"></label><label
+                                                for="checkboxManufacturer9640">İnsan Yayınları</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(3)</span></div>
+                                    </li>
+                                    
+                                    <li class="manufacturerType2" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer12817"><label
+                                                for="checkboxManufacturer12817"></label><label
+                                                for="checkboxManufacturer12817">Pay Yayınları</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="manufacturerType2" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer14823"><label
+                                                for="checkboxManufacturer14823"></label><label
+                                                for="checkboxManufacturer14823">Puslu Yayıncılık</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="manufacturerType2" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer13847"><label
+                                                for="checkboxManufacturer13847"></label><label
+                                                for="checkboxManufacturer13847">Son Çağ Yayınları</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="manufacturerType2" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcManufacturers"
+                                                id="checkboxManufacturer13452"><label
+                                                for="checkboxManufacturer13452"></label><label
+                                                for="checkboxManufacturer13452">Uçan Fil</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li style="margin-top: 5px"><a onclick="ShowHideLi('manufacturerType2');"
+                                            style="color: #febf00; font-weight: bold; font-size: 15px; margin-left: 18px; cursor:pointer;">Devamı
+                                        </a></li>
+                                </ul>
+                            </div>
+                            <div id="Yazarfiltre" class="filtresag">
+                                <div class="titlebck"  v-on:click="active=!active" data-toggle="collapse" data-target="#ulEmployeesType1"
+                                    aria-expanded="true">Yazar Filtrele</div>
+                                <ul 
+                                v-bind:class="[ active === true ? 'aramalist collapse' : 'aramalist collapse in' ]" aria-expanded="true">
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-81396"><label
+                                                for="checkboxEmployee1-81396"></label><label
+                                                for="checkboxEmployee1-81396">Beşir Ayvazoğlu</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(2)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-312113"><label
+                                                for="checkboxEmployee1-312113"></label><label
+                                                for="checkboxEmployee1-312113">Adem Alağaş</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-306774"><label
+                                                for="checkboxEmployee1-306774"></label><label
+                                                for="checkboxEmployee1-306774">Alper Er</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-102348"><label
+                                                for="checkboxEmployee1-102348"></label><label
+                                                for="checkboxEmployee1-102348">Ata Tuncer</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-312114"><label
+                                                for="checkboxEmployee1-312114"></label><label
+                                                for="checkboxEmployee1-312114">Hilmi Karakaş</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-78903"><label
+                                                for="checkboxEmployee1-78903"></label><label
+                                                for="checkboxEmployee1-78903">Honore De Balzac</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-90107"><label
+                                                for="checkboxEmployee1-90107"></label><label
+                                                for="checkboxEmployee1-90107">Hüseyin Rahmi Gürpınar</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-185236"><label
+                                                for="checkboxEmployee1-185236"></label><label
+                                                for="checkboxEmployee1-185236">İsmail Hakkı</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-166629"><label
+                                                for="checkboxEmployee1-166629"></label><label
+                                                for="checkboxEmployee1-166629">İsmail Isparta</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-312089"><label
+                                                for="checkboxEmployee1-312089"></label><label
+                                                for="checkboxEmployee1-312089">John A. Herlihy</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-273113"><label
+                                                for="checkboxEmployee1-273113"></label><label
+                                                for="checkboxEmployee1-273113">Kamil Kısakol</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-181781"><label
+                                                for="checkboxEmployee1-181781"></label><label
+                                                for="checkboxEmployee1-181781">Kolektif</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-256695"><label
+                                                for="checkboxEmployee1-256695"></label><label
+                                                for="checkboxEmployee1-256695">Lordist</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-188010"><label
+                                                for="checkboxEmployee1-188010"></label><label
+                                                for="checkboxEmployee1-188010">M. Hakan Keskin</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-77507"><label
+                                                for="checkboxEmployee1-77507"></label><label
+                                                for="checkboxEmployee1-77507">Maksim Gorki</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="employeeType1" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcEmployees1"
+                                                id="checkboxEmployee1-312120"><label
+                                                for="checkboxEmployee1-312120"></label><label
+                                                for="checkboxEmployee1-312120">Mehmet Emin Kırgil</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li style="margin-top: 5px"><a 
+                                            style="color: #febf00; font-weight: bold; font-size: 15px; margin-left: 18px; cursor:pointer;">Devamı
+                                        </a></li>
+                                </ul>
+                            </div>
+                            <div id="KategoriFiltre" class="filtresag">
+                                <div class="titlebck" v-on:click="active=!active" data-toggle="collapse" 
+                                    aria-expanded="true">Kategori Filtrele</div>
+                                <ul v-bind:class="[ active === true ? 'aramalist collapse' : 'aramalist collapse in' ]" aria-expanded="true">
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272819"><label
+                                                for="checkboxCategory9272819"></label><label
+                                                for="checkboxCategory9272819">Roman</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(12)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272826"><label
+                                                for="checkboxCategory9272826"></label><label
+                                                for="checkboxCategory9272826">Şiir</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(5)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272845"><label
+                                                for="checkboxCategory9272845"></label><label
+                                                for="checkboxCategory9272845">Akademik</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(4)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272875"><label
+                                                for="checkboxCategory9272875"></label><label
+                                                for="checkboxCategory9272875">Araştırma-İnceleme</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(3)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272905"><label
+                                                for="checkboxCategory9272905"></label><label
+                                                for="checkboxCategory9272905">Masallar</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(3)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272827"><label
+                                                for="checkboxCategory9272827"></label><label
+                                                for="checkboxCategory9272827">Biyografi-Otobiyogafi</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(2)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272831"><label
+                                                for="checkboxCategory9272831"></label><label
+                                                for="checkboxCategory9272831">Araştırma - İnceleme</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272919"><label
+                                                for="checkboxCategory9272919"></label><label
+                                                for="checkboxCategory9272919">Astroloji-Fal- Rüya</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272828"><label
+                                                for="checkboxCategory9272828"></label><label
+                                                for="checkboxCategory9272828">Deneme</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    
+                                    <li class="category" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272900"><label
+                                                for="checkboxCategory9272900"></label><label
+                                                for="checkboxCategory9272900">Eleştiri, İnceleme, Kuram</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    
+                                    <li class="category" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272858"><label
+                                                for="checkboxCategory9272858"></label><label
+                                                for="checkboxCategory9272858">Öykü</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    <li class="category" style="display:none;">
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcCategories"
+                                                id="checkboxCategory9272865"><label
+                                                for="checkboxCategory9272865"></label><label
+                                                for="checkboxCategory9272865">Sınavlara Hazırlık Kitapları</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(1)</span></div>
+                                    </li>
+                                    
+                                    <li style="margin-top: 5px"><a 
+                                            style="color: #febf00; font-weight: bold; font-size: 15px; margin-left: 18px; cursor:pointer;">Devamı
+                                        </a></li>
+                                </ul>
+                            </div>
+                            <div id="FiyatFiltre" class="filtresag">
+                                <div class="titlebck" v-on:click="active=!active" data-toggle="collapse" data-target="#ulPriceRanges"
+                                    aria-expanded="true">Fiyat Filtrele</div>
+                                <ul v-bind:class="[ active === true ? 'aramalist collapse' : 'aramalist collapse in' ]" aria-expanded="true">
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcPriceRanges"
+                                                id="checkboxPriceRange1"><label for="checkboxPriceRange1"></label><label
+                                                for="checkboxPriceRange1">0 - 10 TL</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(2)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcPriceRanges"
+                                                id="checkboxPriceRange2"><label for="checkboxPriceRange2"></label><label
+                                                for="checkboxPriceRange2">10 - 20 TL</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(12)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcPriceRanges"
+                                                id="checkboxPriceRange3"><label for="checkboxPriceRange3"></label><label
+                                                for="checkboxPriceRange3">20 - 30 TL</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(16)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcPriceRanges"
+                                                id="checkboxPriceRange4"><label for="checkboxPriceRange4"></label><label
+                                                for="checkboxPriceRange4">30 - 40 TL</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(4)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcPriceRanges"
+                                                id="checkboxPriceRange5"><label for="checkboxPriceRange5"></label><label
+                                                for="checkboxPriceRange5">40 - 50 TL</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(5)</span></div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            style="float: left; width: 200px; height: 25px; padding-left: 3px; margin-left: -2px; overflow: hidden;">
+                                            <input type="checkbox" class="regular-checkbox chcPriceRanges"
+                                                id="checkboxPriceRange6"><label for="checkboxPriceRange6"></label><label
+                                                for="checkboxPriceRange6">50 TL ve üzeri</label></div>
+                                        <div style="float: right; margin-right: 5px; margin-top: 7px"><span
+                                                class="">(4)</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="urun">
+                            <div class="titlebck" id="divFilteringDescription">'Yeni Çıkanlar'</div>
+                            <div class="filtrealan">
+                                <div class="col-md-6">
+                                    <select id="slcOrderBy" class="form-control">
+                                        <option value="P.SaleQuantity DESC">Çok Satandan Az Satana</option>
+                                        <option selected="selected" value="ProductId Desc">Yeniden Eskiye</option>
+                                        <option value="ProductId ASC">Eskiden yeniye</option>
+                                        <option value="P.Name ASC">İsme göre artan (A-&gt;Z)</option>
+                                        <option value="P.Name DESC">İsme göre azalan (Z-&gt;A)</option>
+                                        <option value="P.SalePrice DESC">Fiyata göre azalan</option>
+                                        <option value="P.SalePrice ASC">Fiyata göre artan</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 sonucsayi sifirla hidden-sm hidden-xs">
+                                    <ul class="ulPaging">
+                                        <li><a class="aPageFirst paging not-active">İlk</a></li>
+                                        <li><a class="aPageBack paging not-active">&lt;&lt;</a></li>
+                                        <li class="paging activeli"><a>1</a></li>
+                                        <li class="paging"><a class="aPageIndex">2</a></li>
+                                        <li class="paging"><a class="aPageIndex">3</a></li>
+                                        <li><a class="aPageNext paging">&gt;&gt;</a></li>
+                                        <li><a class="aPageLast paging">Son</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 sifirla">
+                                    <section class="section-main-products clearfix">
+                                        <div class="main-content-block">
+                                            <div class="tab-block">
+                                                    <div class="tab-content">
+                                                            <div role="tabpanel" class="tab-pane active clearfix">
+                                                                <div class="govdeKitap">
+                                                                    <div class="kitaplar">
+                                                                        <div style="border-top: 1px solid #f6f6f6;
+                                                                                    margin-top: 1px;">
+                                                                            <div>
+                                                                                <div class="kitapCerceve clearfix">
+                                                                                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3"
+                                                                                        id="kitap10">
+                                                                                        <div class="kitapIcerik"
+                                                                                            style="height: 430px !important;width: 207px;">
+                                                                                            <div>
+                                                                                                <a style="text-decoration: none !important;"
+                                                                                                    href="urun.html"></a>
+                                                                                                <div class="prod">
+                                                                                                    <a style="text-decoration: none !important;"
+                                                                                                        href="urun.html">
+                                                                                                        <div class="pr">
+                                                                                                            <span
+                                                                                                                class="resimWrap resimWrap-gorunur"
+                                                                                                                style="width:145px;">
+                                                                                                                <img style="display: block;"
+                                                                                                                    width="145" class="mx"
+                                                                                                                    alt="issiz-kadinlar"
+                                                                                                                    src="resimler/middle-issiz-kadinlar-sokagi.jpg">
+                                                                                                            </span></div>
+                                                                                                    </a></div>
+                                                                                                <a style="text-decoration: none !important;"
+                                                                                                    href="#issiz-kadinlar">
+                                                                                                    <h5 style="height: 32px;
+                                                                                                                    color: #6f6d6e;
+                                                                                                                    font-family: verdana;
+                                                                                                                    font-weight: 300;
+                                                                                                                    margin-bottom: 5px !important;
+                                                                                                                    margin-top: 15px;
+                                                                                                                    text-decoration: none !important;
+                                                                                                                    padding-left: 3px;
+                                                                                                                    padding-right: 3px;">
+                                                                                                        {{object.kitapAdi}}</h5>
+                                                                                                </a>
+                                                                                                <h6 style="
+                                                                                                                height: 13px;
+                                                                                                                font-size: 10px;
+                                                                                                                margin-top: 5px;
+                                                                                                                ">
+                                                                                                    <span><a href="#zeynep-sahra">
+                                                                                                            <span>{{object.kitapYazar}}</span></a></span>
+                                                                                                </h6>
+                                                                                                <h6 style="
+                                                                                                                height: 13px;
+                                                                                                                font-size: 10px;
+                                                                                                                margin-top: 5px;
+                                                                                                                ">
+                                                                                                    <span>
+                                                                                                        <a href="#ren-kitap">
+                                                                                                            <span>{{object.kitapYayinEvi}}</span></a></span>
+                                                                                                </h6>
+                                                                                                <div class="yildizlar clearfix">
+                                                                                                    <div class="input select oyYildiz"
+                                                                                                        style="margin-left: 15%;">
+                                                                                                        <select class="slcVote"
+                                                                                                            style="display: none;">
+                                                                                                            <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option selected="" value="3">3
+                                                                                                            </option>
+                                                                                                            <option value="4">4</option>
+                                                                                                            <option value="5">5</option>
+                                                                                                        </select>
+                                                                                                        <div class="oy-Sembol"><a href="#"
+                                                                                                                data-rating-value="1"
+                                                                                                                data-rating-text="1"
+                                                                                                                class="oy-Secilen"><span></span></a><a
+                                                                                                                href="#"
+                                                                                                                data-rating-value="2"
+                                                                                                                data-rating-text="2"
+                                                                                                                class="oy-Secilen"><span></span></a><a
+                                                                                                                href="#"
+                                                                                                                data-rating-value="3"
+                                                                                                                data-rating-text="3"
+                                                                                                                class="oy-Secilen"><span></span></a><a
+                                                                                                                href="#"
+                                                                                                                data-rating-value="4"
+                                                                                                                data-rating-text="4"
+                                                                                                                class="oy-Secilen"><span></span></a><a
+                                                                                                                href="#"
+                                                                                                                data-rating-value="5"
+                                                                                                                data-rating-text="5"
+                                                                                                                class=""><span></span></a>
+                                                                                                        </div>
+                    
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <span class="yuzde">%
+                                                                                                    {{object.kitapYuzde}}<span>indirim</span></span>
+                                                                                                <div class="top-eksi"><span
+                                                                                                        class="eski-fiyat">{{object.kitapFiyat}}
+                                                                                                        TL</span>
+                                                                                                    <span
+                                                                                                        class="yeniFiyat">{{object.kitapIndirimliFiyat}}
+                                                                                                        TL</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                    
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-block clearfix" id="divProductsEmpty"
+                                                            style="display: none;">
+                                                            <i style="font-size: 140px; color: #febf00;"
+                                                                class="fa fa-exclamation"></i>
+                                                            <h1 style="text-align: center; padding: 10px">Aramanıza
+                                                                uygun sonuç bulunamadı!</h1>
+                                                            <h4 style="text-align: center; padding: 10px">Farklı
+                                                                kriterler ile tekrar arama yapabilir ya da bir sorun
+                                                                olduğunu düşünüyorsanız, bizimle <a
+                                                                    href="/bilgi/iletisim">iletişime</a> geçebilirsiniz.
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 sifirla">
+                                                <p id="pRecordsCount">Listelen ürün : 43</p>
+                                            </div>
+                                            <div class="col-md-6 sonucsayi sifirla">
+                                                <ul class="ulPaging">
+                                                    <li><a class="aPageFirst paging not-active">İlk</a></li>
+                                                    <li><a class="aPageBack paging not-active">&lt;&lt;</a></li>
+                                                    <li class="paging activeli"><a>1</a></li>
+                                                    <li class="paging"><a class="aPageIndex">2</a></li>
+                                                    <li class="paging"><a class="aPageIndex">3</a></li>
+                                                    <li><a class="aPageNext paging">&gt;&gt;</a></li>
+                                                    <li><a class="aPageLast paging">Son</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="hdnManufacturers" value="">
+        <input type="hidden" id="hdnEmployees" value="">
+        <input type="hidden" id="hdnCategories" value="">
+        <input type="hidden" id="hdnPriceRanges" value="">
+        <input type="hidden" id="hdnCampaign" value="">
+        <input type="hidden" id="hdnActivePage" value="0">
+        <input type="hidden" id="hdnPageCount" value="4">
+        <div id="divEmployees"><input type="hidden" id="hdnEmployeeType[object Object]" value=""></div>
+
+    </div>
+
+    <div class="clearfix"></div>
+    <!--footerın Üstü-->
+    <div style="margin-top: 20px;
+                            background-color: #ececec;
+                            width: 1400px;
+                            padding-top: 40px;
+                            padding-bottom: 40px;">
+        <footer class="bilgi-altbilgi">
+            <div class="container">
+            </div>
+        </footer>
+        <footer class="alt-altbilgi">
+            <div class="container">
+                <div class="col-sm-3" style="margin-top: 10px;">
+                    <a href="index.html" title="Okuoku.com">
+                        <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
+                    </a>
+                </div>
+                <div class="hizli-erisim">
+                    <ul>
+                        <li style="color:#337ab7"><a><i class="fa fa-barcode"></i>Orjinal
+                                Ürün</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-check"></i>Güvenli
+                                Ödeme</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-lock"></i>Güvenli
+                                Alışveriş</a></li>
+                        <li style="color:#337ab7"><a href="#siparis"><i class="fa fa-bars"></i>Sipariş
+                                Takibi</a></li>
+                    </ul>
+                </div>
+                <div class="sosyal-butonlar">
+                    <h4>Sosyal Medya</h4>
+                    <ul style="margin-left: 82%;">
+                        <li><a target="_blank" href="https://www.facebook.com/okuoku1">
+                                <img class="img-responsive" src="resimler/facebook.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://twitter.com/okuokucom">
+                                <img class="img-responsive" src="resimler/twitter.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/okuoku1">
+                                <img class="img-responsive" src="resimler/instagram.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="index.js"></script>
+
+    </form>
+    </div>
+</body>
+
+</html>

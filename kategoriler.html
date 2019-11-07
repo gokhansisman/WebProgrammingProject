@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Online kitap alışveriş siteniz
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="css/bootstrap3860.css?v=1" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="Content/user/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" type="image/ico" href="Content/user/img/favicon.ico" />
+    <link href="stylebea6.css" rel="stylesheet" />
+    <body>
+            <div class="acilisEkrani" id="silinecek">
+                <div id="gifEkran">
+                    <div id="durum">&nbsp;</div>
+                </div>
+            </div>
+            <script>
+                setTimeout(function () { document.getElementById('silinecek').remove(); }, 3000);
+            </script>
+            <div id="foto" v-if="seen" style="margin: 0;
+            padding: 0;">
+                <a href="#kampanyalar">
+                    <div class="enUstFoto">
+                        <span class="fotoKapat"><i v-on:click="seen=false" class="fa fa-times"></i></span>
+                    </div>
+                </a>
+            </div>
+        
+            <header class="enUstBaslik">
+                <div class="container">
+                    <div class="row">
+                        <div class="baslik-genel" style=" position: static !important;
+                        height: auto !important;  font-weight: 400;
+                        line-height: 1.1;">
+                            <nav style="line-height: 1;">
+                                <ul>
+                                    <li style="float: left;"><a href="#musteri-hizmetleri" style="color: #7c7c7c;
+                                    margin-right: 15px;">MÜŞTERİ HİZMETLERİ </a></li>
+                                    <li style="float: left;">
+                                        <a href="#siparis-takip" style="color: #D91E18;"><i class="fa fa-bars"
+                                                style="color: #D91E18;"></i><strong>&nbsp;SİPARİŞ
+                                                TAKİBİ&nbsp;&nbsp;&nbsp;</strong></a>
+                                    </li>
+                                    <li style="float: left;"><a href="#hakkimizda" style="color: #7c7c7c;
+                                        margin-right: 15px;">Hakkımızda</a></li>
+                                    <li style="float: left;"><a href="#iletisim" style="color: #7c7c7c;
+                                        margin-right: 15px;">İletişim</a></li>
+                                </ul>
+                            </nav>
+                            <!-- sağ üst menü -->
+                            <!--class = nav pull right ile sağa veya aşağıdaki şekilde olabilir.-->
+                            <div style="position: absolute;right:10%">
+                                <div>
+                                    <ul>
+                                        <li>Hoş geldin ziyaretçi <b><a href="#giris" style="color: #337ab7;">giriş
+                                                    yapın</a></b>ya da
+                                            <b><a href="#kayit" style="color: #337ab7;">kayıt olun</a></b></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orta" style="margin-top: 15px;">
+                            <div class="logo col-md-3" style=" margin-top: 30px;">
+                                <a href="index.html" title="Okuoku.com">
+                                    <img src="resimler/logo.png" />
+                                </a>
+                            </div>
+        
+                            <div class="arama col-md-5 ">
+                                <div>
+                                    <div style="margin-left: 5px;
+                                    font-size: 15px;
+                                    color: #febf00;">
+                                        <b>50 TL Üzeri Kargo Bedava!</b>
+                                    </div>
+                                    <div style="float: right;
+                                     margin-left: 15px;
+                                    font-size: 14px;
+                                    color: #febf00;">
+                                        <b>Kapıda Nakit Ödeme</b>
+                                    </div>
+                                </div>
+                                <input type="search" placeholder="Ara..." />
+                                <a class="send">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-5" style="text-align: right;">
+                                <div style="float:left">
+                                    <a href="#giris" class="sepet" style="margin-top: 40px;">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span class="girisYapYazisi">SEPETİM</span>
+                                        <p>
+                                            Giriş yapmalısınız.
+                                        </p>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="ozellik" style=" height: 25px;
+                                    color: #6f6d6e;
+                                    font-family: verdana;
+                                    font-weight: 300;
+                                    margin-bottom: 5px !important;
+                                    margin-top: 40px;
+                                    text-decoration: none !important;
+                                    padding-left: 3px;
+                                    " href="#giris">
+                                        <i class="fa fa-user"></i>
+                                        <span class="girisYapYazisi">GİRİŞ YAP</span>
+                                        <p class="kayitol">KAYIT OL</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <header>
+                <div>
+                    <nav class="anaMenu" style="min-height: 0;
+                    margin-bottom: 0; border-bottom: 2px solid #febf00;
+                    border-top: 1px solid #dfe0e2;
+                    height: 53px;
+                    ">
+                        <div class="container">
+                            <div>
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="index.html" title="Okuoku.com"><i class="fa fa-home"></i></a>
+                                    </li>
+                                    <li><a href="#yeni-cikanlar">Yeni
+                                            Çıkanlar</a></li>
+                                    <li><a href="#yayinevi/listele">Yayınevleri</a></li>
+                                    <li><a href="#kategori/listele">Kategoriler</a></li>
+                                    <li style=" text-transform: uppercase;">
+                                        <a href="#kampanyalar.html" style="color: #5cb85c;"><i class="fa fa-gift "
+                                                style="color: #5cb85c;">
+                                            </i><strong>&nbsp;KAMPANYALAR</strong></a></li>
+                                    <li style=" text-transform: uppercase;">
+                                        <a href="#avantajli-setler" style="color: #2196F3;"><strong>&nbsp;AVANTAJLI
+                                                SETLER</strong></a></li>
+                                    <li style=" text-transform: uppercase;"><a style="height:50px" href="#kitapkulubu"><img
+                                                src="resimler/kulupmenu.png" /></a></li>
+                                    <li style=" text-transform: uppercase;">
+                                        <a href="#kampanyali-yayinevleri">
+                                            <i class="fa fa-paper-plane-o" style="color: #3598DC;"></i><strong
+                                                style="color:#3598DC;">&nbsp;<span style="color:#9C27B0">Ç</span><span
+                                                    style="color:#FF9800">O</span><span style="color:#4CAF50">C</span><span
+                                                    style="color:#03A9F4">U</span><span
+                                                    style="color:#f44336">K</span></strong></a></li>
+                                    <li style="float: right;bottom: 50px;left: 36px;"><a href="#favorilerim"><i
+                                                class="fa fa-heart " style="color: #D91E18;"></i><strong
+                                                style="color: #D91E18;">&nbsp;FAVORİLERİM</strong></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+<div>
+                
+        <div>
+            <div id="kategorisayfa" class="container container-wrap">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="urun">
+                            <div class="titlebck">KATEGORİ LİSTELE</div>
+                            <div class="form-group" style="display:none">
+                                <label class="col-sm-2 control-label fihbas">Kategori Ara:</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input id="txtSearchText" type="text" class="form-control" aria-describedby="basic-addon3">
+                                        <span class="input-group-addon">
+                                            <button id="btnSearch" type="button" class="btn">
+                                                LİSTELE
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div id="divList"><div id="divCategory9200000" class="katana"><div class="col-xs-12 katana1"><a href="/kategori-urun/listele/aile-kitapligi/9200000" class="section-title">Aile Kitaplığı (<span id="spanCategoryProductCount9200000">38</span>)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/yabanci-dilde-aile-kitaplari/9200700">Yabancı Dilde Aile Kitapları (38)</a></div><div class="clearfix"></div></div><div id="divCategory9273007" class="katana"><div class="col-xs-12 katana1"><a href="/kategori-urun/listele/bilgisayar/9273007" class="section-title">Bilgisayar (<span id="spanCategoryProductCount9273007">1525</span>)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/ag--networking/9273064">Ağ - Networking (46)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/apple/9273088">Apple (5)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/bilgisayar-teknolojisi/9273061">Bilgisayar Teknolojisi (73)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/diger/9273023">Diğer (271)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/dijital-medya-yonetimi/9273065">Dijital Medya Yönetimi (11)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/donanim--hardware/9273059">Donanım - Hardware (12)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/grafik-ve-tasarim-/9273008">Grafik ve Tasarım  (230)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/guvenlik--security/9273066">Güvenlik - Security (26)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/internet-ve-internet-kulturu/9273010">İnternet ve İnternet Kültürü (99)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/isletim-sistemleri/9273062">İşletim Sistemleri (44)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/microsoft/9273024">Microsoft (83)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/mobil-ve-mobil-uygulamalar/9273079">Mobil ve Mobil Uygulamalar (12)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/oyunlar/9273084">Oyunlar (16)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/programlama/9273012">Programlama (510)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/veritabani--database/9273044">Veritabanı - Database (31)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/web-gelistirme-ve-tasarim/9273009">Web Geliştirme ve Tasarım (25)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/yeni-baslayanlar-icin/9273011">Yeni Başlayanlar İçin (31)</a></div><div class="clearfix"></div></div><div id="divCategory9272883" class="katana"><div class="col-xs-12 katana1"><a href="/kategori-urun/listele/bilim--muhendislik/9272883" class="section-title">Bilim - Mühendislik (<span id="spanCategoryProductCount9272883">2393</span>)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/astronomi/9273086">Astronomi (11)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/bilim-tarihi/9272907">Bilim Tarihi (171)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/diger/9273046">Diğer (384)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/doga-bilimleri/9273054">Doğa Bilimleri (99)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/matematik/9273081">Matematik (83)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/muhendislik/9273015">Mühendislik (224)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/populer-bilim/9272918">Popüler Bilim (924)</a></div><div class="col-sm-4"><a class="section-title" href="/kategori-urun/listele/sosyal-bilimler/9273082">Sosyal Bilimler (31)</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    <!--footerın Üstü-->
+    <div style="margin-top: 20px;
+                            background-color: #ececec;
+                            width: 1400px;
+                            padding-top: 40px;
+                            padding-bottom: 40px;">
+        <footer class="bilgi-altbilgi">
+            <div class="container">
+            </div>
+        </footer>
+        <footer class="alt-altbilgi">
+            <div class="container">
+                <div class="col-sm-3" style="margin-top: 10px;">
+                    <a href="index.html" title="Okuoku.com">
+                        <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
+                    </a>
+                </div>
+                <div class="hizli-erisim">
+                    <ul>
+                        <li style="color:#337ab7"><a><i class="fa fa-barcode"></i>Orjinal
+                                Ürün</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-check"></i>Güvenli
+                                Ödeme</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-lock"></i>Güvenli
+                                Alışveriş</a></li>
+                        <li style="color:#337ab7"><a href="#siparis"><i class="fa fa-bars"></i>Sipariş
+                                Takibi</a></li>
+                    </ul>
+                </div>
+                <div class="sosyal-butonlar">
+                    <h4>Sosyal Medya</h4>
+                    <ul style="margin-left: 82%;">
+                        <li><a target="_blank" href="https://www.facebook.com/okuoku1">
+                                <img class="img-responsive" src="resimler/facebook.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://twitter.com/okuokucom">
+                                <img class="img-responsive" src="resimler/twitter.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/okuoku1">
+                                <img class="img-responsive" src="resimler/instagram.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="index.js"></script>
+
+    </form>
+    </div>
+</body>
+
+</html>
