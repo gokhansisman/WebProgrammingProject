@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Online kitap alışveriş siteniz
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="css/bootstrap3860.css?v=1" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="index.css" rel="stylesheet" />
+    <link href="Content/user/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" type="image/ico" href="Content/user/img/favicon.ico" />
+    <link href="stylebea6.css" rel="stylesheet" />
+
+<body>
+    <div class="acilisEkrani" id="silinecek">
+        <div id="gifEkran">
+            <div id="durum">&nbsp;</div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function () { document.getElementById('silinecek').remove(); }, 3000);
+    </script>
+    <div id="foto" v-if="seen" style="margin: 0;
+    padding: 0;">
+        <a href="#kampanyalar">
+            <div class="enUstFoto">
+                <span class="fotoKapat"><i v-on:click="seen=false" class="fa fa-times"></i></span>
+            </div>
+        </a>
+    </div>
+
+    <header class="enUstBaslik" style="z-index: 1;">
+        <div class="container">
+            <div class="row">
+                <div class="baslik-genel" style=" position: static !important;
+                height: auto !important;  font-weight: 400;
+                line-height: 1.1;">
+                    <nav style="line-height: 1;">
+                        <ul>
+                            <li style="float: left;"><a href="#musteri-hizmetleri" style="color: #7c7c7c;
+                            margin-right: 15px;">MÜŞTERİ HİZMETLERİ </a></li>
+                            <li style="float: left;">
+                                <a href="#siparis-takip" style="color: #D91E18;"><i class="fa fa-bars"
+                                        style="color: #D91E18;"></i><strong>&nbsp;SİPARİŞ
+                                        TAKİBİ&nbsp;&nbsp;&nbsp;</strong></a>
+                            </li>
+                            <li style="float: left;"><a href="#hakkimizda" style="color: #7c7c7c;
+                                margin-right: 15px;">Hakkımızda</a></li>
+                            <li style="float: left;"><a href="#iletisim" style="color: #7c7c7c;
+                                margin-right: 15px;">İletişim</a></li>
+                        </ul>
+                    </nav>
+                    <!-- sağ üst menü -->
+                    <!--class = nav pull right ile sağa veya aşağıdaki şekilde olabilir.-->
+                    <div style="position: absolute;right:10%">
+                        <div>
+                            <ul>
+                                <li>Hoş geldin ziyaretçi <b><a href="giris.html" style="color: #337ab7;">giriş
+                                            yapın</a></b>ya da
+                                    <b><a href="giris.html" style="color: #337ab7;">kayıt olun</a></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="orta" style="margin-top: 15px;">
+                    <div class="logo col-md-3" style=" margin-top: 30px;">
+                        <a href="index.html" title="Okuoku.com">
+                            <img src="resimler/logo.png" />
+                        </a>
+                    </div>
+
+                    <div class="arama col-md-5 ">
+                        <div>
+                            <div style="margin-left: 5px;
+                            font-size: 15px;
+                            color: #febf00;">
+                                <b>50 TL Üzeri Kargo Bedava!</b>
+                            </div>
+                            <div style="float: right;
+                             margin-left: 15px;
+                            font-size: 14px;
+                            color: #febf00;">
+                                <b>Kapıda Nakit Ödeme</b>
+                            </div>
+                        </div>
+                        <input type="search" placeholder="Ara..." />
+                        <a class="send">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-5" style="text-align: right;">
+                        <div style="float:left">
+                            <a href="giris.html" class="sepet" style="margin-top: 40px;">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="girisYapYazisi">SEPETİM</span>
+                                <p>
+                                    Giriş yapmalısınız.
+                                </p>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="ozellik" style=" height: 25px;
+                            color: #6f6d6e;
+                            font-family: verdana;
+                            font-weight: 300;
+                            margin-bottom: 5px !important;
+                            margin-top: 40px;
+                            text-decoration: none !important;
+                            padding-left: 3px;
+                            " href="giris.html">
+                                <i class="fa fa-user"></i>
+                                <span class="girisYapYazisi">GİRİŞ YAP</span>
+                                <p class="kayitol">KAYIT OL</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header>
+        <div>
+            <nav class="anaMenu" style="min-height: 0;
+            margin-bottom: 0; border-bottom: 2px solid #febf00;
+            border-top: 1px solid #dfe0e2;
+            height: 53px;
+            ">
+
+                <div class="container">
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="index.html" title="Okuoku.com"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#yeni-cikanlar">Yeni
+                                    Çıkanlar</a>
+
+                                
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#yayinevi/listele">Yayınevleri</a>
+                                
+                            </li>
+                            <li class="dropdown">
+                                <a href="#kategori/listele">Kategoriler</a>
+                                
+                            </li>
+                            <li style=" text-transform: uppercase;" class="dropdown">
+                                <a href="kampanyalar.html" style="color: #5cb85c;"><i class="fa fa-gift "
+                                        style="color: #5cb85c;">
+                                    </i><strong>&nbsp;KAMPANYALAR</strong></a>
+                                
+                            </li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#avantajli-setler" style="color: #2196F3;"><strong>&nbsp;AVANTAJLI
+                                        SETLER</strong></a></li>
+                            <li style=" text-transform: uppercase;"><a style="height:50px" href="#kitapkulubu"><img
+                                        src="resimler/kulupmenu.png" /></a></li>
+                            <li style=" text-transform: uppercase;">
+                                <a href="#kampanyali-yayinevleri">
+                                    <i class="fa fa-paper-plane-o" style="color: #3598DC;"></i><strong
+                                        style="color: #3598DC;">&nbsp;<span style="color:#9C27B0">Ç</span><span
+                                            style="color:#FF9800">O</span><span style="color:#4CAF50">C</span><span
+                                            style="color:#03A9F4">U</span><span
+                                            style="color:#f44336">K</span></strong></a></li>
+                            <li style="float: right;bottom: 50px;left: 36px;"><a href="#favorilerim"><i
+                                        class="fa fa-heart " style="color: #D91E18;"></i><strong
+                                        style="color: #D91E18;">&nbsp;FAVORİLERİM</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div>
+
+        <div>
+            <div id="fihristsayfa" class="container container-wrap">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="urun">
+                            <div class="titlebck">YAYINEVİ LİSTELE</div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label fihbas">Yayınevi Ara:</label>
+                                <div class="col-sm-7">
+                                    <div class="input-group">
+                                        <input id="txtSearchText" type="text" class="form-control"
+                                            aria-describedby="basic-addon3">
+                                        <span class="input-group-addon">
+                                            <button id="btnSearch" type="button" class="btn">
+                                                LİSTELE
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 hidden-xs">
+                                </div>
+                            </div>
+                            <div class="content_publish">
+                                <span class="btn letter">0-9</span>
+                                <span class="btn active letter">A</span>
+                                <span class="btn letter">B</span>
+                                <span class="btn letter">C</span>
+                                <span class="btn letter">Ç</span>
+                                <span class="btn letter">D</span>
+                                <span class="btn letter">E</span>
+                                <span class="btn letter">F</span>
+                                <span class="btn letter">G</span>
+                                <span class="btn letter">H</span>
+                                <span class="btn letter">I</span>
+                                <span class="btn letter">İ</span>
+                                <span class="btn letter">J</span>
+                                <span class="btn letter">K</span>
+                                <span class="btn letter">L</span>
+                                <span class="btn letter">M</span>
+                                <span class="btn letter">N</span>
+                                <span class="btn letter">O</span>
+                                <span class="btn letter">Ö</span>
+                                <span class="btn letter">P</span>
+                                <span class="btn letter">Q</span>
+                                <span class="btn letter">R</span>
+                                <span class="btn letter">S</span>
+                                <span class="btn letter">Ş</span>
+                                <span class="btn letter">T</span>
+                                <span class="btn letter">U</span>
+                                <span class="btn letter">Ü</span>
+                                <span class="btn letter">V</span>
+                                <span class="btn letter">W</span>
+                                <span class="btn letter">X</span>
+                                <span class="btn letter">Y</span>
+                                <span class="btn letter">Z</span>
+                            </div>
+                            <div id="divShow">
+                                <div id="divList" class="row">
+                                    <div class="col-sm-4">
+                                        <a style="font-size: 17px;" class="section-title"
+                                            href="#">A Kariyer
+                                            Yayıncılık (2)</a></div>
+                                    <div class="col-sm-4"><a style="font-size: 17px;" class="section-title"
+                                            href="#">A Kitap (38)</a></div>
+                                    <div class="col-sm-4"><a style="font-size: 17px;" class="section-title"
+                                            href="#">A Yayınları (89)</a></div>
+                                    
+                                    <div class="col-sm-4"><a style="font-size: 17px;" class="section-title"
+                                            href="#">Academia Yayınevi
+                                            (1)</a></div>
+                                    
+                                </div>
+                                <div>
+                                    <div class="col-md-6 sifirla">
+                                        <p>Listenen : 4</p>
+                                    </div>
+                                    <div class="col-md-6 sonucsayi sifirla">
+                                        <ul class="ulPaging">
+                                            <li><a class="aPageFirst paging not-active">İlk</a></li>
+                                            <li><a class="aPageBack paging not-active">&lt;&lt;</a></li>
+                                            <li class="paging activeli"><a>1</a></li>
+                                            <li class="paging"><a class="aPageIndex">2</a></li>
+                                            <li class="paging"><a class="aPageIndex">3</a></li>
+                                            <li><a class="aPageNext paging">&gt;&gt;</a></li>
+                                            <li><a class="aPageLast paging">Son</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="divHide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input id="hdnActivePage" type="hidden" value="0">
+        <input id="hdnPage" type="hidden" value="A">
+        <input id="hdnPageCount" type="hidden" value="8">
+
+    </div>
+    <div class="clearfix"></div>
+    <!--footerın Üstü-->
+    <div style="margin-top: 20px;
+                                    background-color: #ececec;
+                                    width: 1400px;
+                                    padding-top: 40px;
+                                    padding-bottom: 40px;">
+        <footer class="bilgi-altbilgi">
+            <div class="container">
+            </div>
+        </footer>
+        <footer class="alt-altbilgi">
+            <div class="container">
+                <div class="col-sm-3" style="margin-top: 10px;">
+                    <a href="index.html" title="Okuoku.com">
+                        <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
+                    </a>
+                </div>
+                <div class="hizli-erisim">
+                    <ul>
+                        <li style="color:#337ab7"><a><i class="fa fa-barcode"></i>Orjinal
+                                Ürün</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-check"></i>Güvenli
+                                Ödeme</a></li>
+                        <li style="color:#337ab7"><a><i class="fa fa-lock"></i>Güvenli
+                                Alışveriş</a></li>
+                        <li style="color:#337ab7"><a href="#siparis"><i class="fa fa-bars"></i>Sipariş
+                                Takibi</a></li>
+                    </ul>
+                </div>
+                <div class="sosyal-butonlar">
+                    <h4>Sosyal Medya</h4>
+                    <ul style="margin-left: 82%;">
+                        <li><a target="_blank" href="https://www.facebook.com/okuoku1">
+                                <img class="img-responsive" src="resimler/facebook.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://twitter.com/okuokucom">
+                                <img class="img-responsive" src="resimler/twitter.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/okuoku1">
+                                <img class="img-responsive" src="resimler/instagram.png" alt="icon" width="32"
+                                    height="32" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="index.js"></script>
+
+    </form>
+    </div>
+</body>
+
+</html>
