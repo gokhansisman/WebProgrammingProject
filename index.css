@@ -1074,3 +1074,14 @@ float: left;
   .dropdown:hover .dropdown-child {
     display: block !important;
   }
+  .kampanyalarSayfasiFoto{
+    border: 2px solid;
+    border-color: tomato;
+    border-radius: 10px;
+  padding: 10px;
+  box-shadow: 5px 10px 20px #ffbd27 inset;
+ }
+ .kampanyalarSayfasiFoto:hover{
+    opacity: 0.5;  /* blur */ 
+    border-color: #ffbd27;
+    transition: 500ms;
