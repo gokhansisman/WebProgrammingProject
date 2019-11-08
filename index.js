@@ -232,7 +232,7 @@ new Vue({
     }
   }
 });
-new Vue({
+var adet = new Vue({
   el: '#app',
   data: { 
     counter: 0 // Initial Value 
@@ -306,6 +306,33 @@ new Vue({
     }
   }
 });
+
+var app5 = new Vue({
+  el: '#sepet',
+  data: {
+    message: 'SEPETE EKLE',
+    tiklandiMi:false,
+    counter:0
+  },
+  methods: {
+    ekle: function () {
+      this.message = 'SEPETE EKLENDI',
+      this.tiklandiMi =true,
+      app6.Arttır()
+    }
+  }
+})
+var app6 = new Vue({
+  el: '#sepet2',
+  data: {
+    counter:0
+  },
+  methods: {
+    Arttır: function () {
+      this.counter = adet.counter;
+    }
+  }
+})
 
 var slideIndex = 1;
 showDivs(slideIndex);

@@ -1086,3 +1086,29 @@ float: left;
     opacity: 0.5;  /* blur */ 
     border-color: #ffbd27;
     transition: 500ms;
+ }
+
+ .eklendi{
+    display: block;
+    width: 153px;
+    color: #fff;
+    background-color: #2965ff !important;
+    font-size: 13px;
+    text-align: center;
+    margin: 5px auto;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    font-weight: 700;
+   
+ }
+ .eklenmeden{
+    display: block;
+    width: 153px;
+    color: #fff;
+    background-color: #5cb85c !important;
+    font-size: 13px;
+    text-align: center;
+    margin: 5px auto;
+    transition: all .3s;
+    font-weight: 700;
+ }
