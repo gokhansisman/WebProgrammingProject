@@ -93,13 +93,13 @@
                             <i class="fa fa-search"></i>
                         </a>
                     </div>
-                    <div class="col-md-4 col-sm-5" style="text-align: right;">
+                    <div class="col-md-4 col-sm-5" style="text-align: right;" id="sepetAfter">
                         <div style="float:left">
                             <a href="#giris" class="sepet" style="margin-top: 40px;">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="girisYapYazisi">SEPETİM</span>
                                 <p>
-                                    Giriş yapmalısınız.
+                                    ({{counter}}) adet ürün var.
                                 </p>
                             </a>
                         </div>
@@ -167,128 +167,178 @@
     </header>
     <div>
 
-        <div class="row sifirla">
+        <div class="row sifirla" v-if="seen" id="sepetBosMu">
             <div class="container sifirlaorta sepetsayfa">
 
                 <div id="divBasketEmpty" class=" urun">
 
                     <i class="fa fa-shopping-cart favbos"></i>
                     <h1>Sepetiniz Boş!</h1>
-                    <h4>Alışverişe devam etmek için <a href="/index.html" style="color: #337ab7;">tıklayın</a>.</h4>
+                    <h4>Alışverişe devam etmek için <a
+                            href="file:///C:/Users/Sisman/Desktop/WebProgrammingProject/index.html"
+                            style="color: #337ab7;">tıklayın</a>.</h4>
                 </div>
             </div>
         </div>
-        <div class="row sifirla">
-            <div class="container sifirlaorta">
-                <div class="col-md-9">
-                    <div class="urun" id="divBasketDetails" style="display: none;">
-                        <div class="titlebck">Sepetim</div>
-                        <table class="table_type_1 shopping_cart_table sepettablo">
-                            <thead>
-                                <tr>
-                                    <th class="product_image_col">Ürün </th>
-                                    <th>Fiyat</th>
-                                    <th class="product_qty_col">Adet</th>
-                                    <th>Toplam</th>
-                                    <th class="product_actions_col"></th>
-                                    <th class="product_actions_col">
-                                        <a class="hoverTooltip" onclick="basketClear(855535);"
-                                            style="cursor: pointer; font-size: 25px" title=""
-                                            data-original-title="Tüm Sepeti Sil"><i class="fa fa-times"></i></a>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbodyBasketDetails"></tbody>
-                        </table>
-                    </div>
-                    <div id="divCampaign" style="display: none;">
-                        <br>
-                        <div class="urun" style="border: 1px solid #f44336;">
-                            <div class="titlebck flashblue"
-                                style="font-size:20px; text-align:center; line-height: 1.3;"><span
-                                    id="spnCampaignTitle">Ücretsiz Ürün Kampanyası</span></div>
-                            <table class="table_type_1 shopping_cart_table">
+        <div v-if="seen" id="sepetDoluMu">
+            <div class="row sifirla">
+                <div class="container sifirlaorta">
+                    <div class="col-md-9">
+                        <div class="urun" id="divBasketDetails">
+                            <div class="titlebck">Sepetim</div>
+                            <table class="table_type_1 shopping_cart_table sepettablo">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: left;">Ürün</th>
-                                        <th>Seçim</th>
+                                        <th class="product_image_col">Ürün </th>
+                                        <th>Fiyat</th>
+                                        <th class="product_qty_col">Adet</th>
+                                        <th>Toplam</th>
+                                        <th class="product_actions_col"></th>
+                                        <th class="product_actions_col">
+                                            <a class="hoverTooltip" v-on:click="sepetiSil"
+                                                style="cursor: pointer; font-size: 25px" title=""
+                                                data-original-title="Tüm Sepeti Sil"><i class="fa fa-times"></i></a>
+                                        </th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbyCampaignDetails" class="sepettablo"></tbody>
-                            </table>
+                                <tbody id="tbodyBasketDetails">
+                                    <tr id="tr1401532">
+                                        <td data-title="Product Image" class="product_image_col">
+                                            <div class="text-left"><a
+                                                    href="urun.html"
+                                                    class="thumb-holder"><img
+                                                        src="resimler/small-issiz-kadinlar-sokagi.jpg"
+                                                        class="listimg"></a>
+                                                <div class="title"><a class="u-url"
+                                                        href="/urun/detay/kitap/issiz-kadinlar-sokagi/1401532">
+                                                        <h5 class="p-name">Issız Kadınlar Sokağı</h5>
+                                                    </a></div>
+                                                <div class="brand">
+                                                    <h6 class="p-brand"><span><a
+                                                                href="/urun/listele/dogan-kitap/dogan-kitap/9118"
+                                                                itemprop="manufacturer"><span>Doğan
+                                                                    Kitap</span></a></span></h6>
+                                                    <h6 class="p-brand"><span><a
+                                                                href="/urun/listele/yazar/1/canan-tan/80240"><span>Canan
+                                                                    Tan</span></a></span></h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td data-title="Price" class="subtotal">19,44 TL</td>
+                                        <td data-title="Quantity">
+                                            <div class="qty min" id="sayiArttirma">
+                                                <div class="addto-cart-button" >
+                                                    <input type="button" @click="decreaseAdet(1)" id="minus"
+                                                        value="-" />
 
-                        </div>
-                    </div>
-                    <div class="clearfix" style="margin-bottom:10px;"></div>
-                    <div id="divCampaignProductsCampaignType8" style="display: none;">
-                        <br>
-                        <div class="urun" style="border: 1px solid #3598DC;">
-                            <div class="titlebck flashblue"><span id="spnCampaignProductsCampaignType8Title">Sepette
-                                    Ekstra İndirimli Ürünler</span></div>
-                            <table class="table_type_1 shopping_cart_table">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align: left;">Ürün</th>
-                                        <th style="text-align: center;">Fiyat</th>
-                                        <th></th>
+                                                    <input type="number" v-model="sayi" min="1"  max="1000" />
+
+                                                    <input type="button" @click="increaseAdet(20)" value="+" />
+                                                </div>
+                                                <a class="hoverTooltip" @click="guncelleAdet"><i
+                                                        class="fa fa-refresh"></i></a>
+                                            </div>
+                                        </td>
+                                        <td data-title="Total"class="total">19.44 TL</td>
+                                        <td data-title="Action"><a class="hoverTooltip" title="Favorilerime Ekle"
+                                                onclick="basketDetailToFavoriteProduct(855535,10484832, 1401532);"
+                                                style="cursor:pointer;"><i class="fa fa-exchange"></i></a></td>
+                                        <td data-title="Action"><a class="hoverTooltip" title="Sil"
+                                                onclick="basketDetailDelete(855535,10484832);"
+                                                style="cursor:pointer;"><i class="fa fa-times"></i></a></td>
                                     </tr>
-                                </thead>
-                                <tbody id="tbyCampaignDetailProductsCampaignType8" class="sepettablo">
                                 </tbody>
                             </table>
+                        </div>
+                        <div id="divCampaign" style="display: none;">
+                            <br>
+                            <div class="urun" style="border: 1px solid #f44336;">
+                                <div class="titlebck flashblue"
+                                    style="font-size:20px; text-align:center; line-height: 1.3;"><span
+                                        id="spnCampaignTitle">Ücretsiz Ürün Kampanyası</span></div>
+                                <table class="table_type_1 shopping_cart_table">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: left;">Ürün</th>
+                                            <th>Seçim</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbyCampaignDetails" class="sepettablo"></tbody>
+                                </table>
 
+                            </div>
+                        </div>
+                        <div class="clearfix" style="margin-bottom:10px;"></div>
+                        <div id="divCampaignProductsCampaignType8" style="display: none;">
+                            <br>
+                            <div class="urun" style="border: 1px solid #3598DC;">
+                                <div class="titlebck flashblue"><span id="spnCampaignProductsCampaignType8Title">Sepette
+                                        Ekstra İndirimli Ürünler</span></div>
+                                <table class="table_type_1 shopping_cart_table">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: left;">Ürün</th>
+                                            <th style="text-align: center;">Fiyat</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbyCampaignDetailProductsCampaignType8" class="sepettablo">
+                                    </tbody>
+                                </table>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="siparis-ozeti" id="divBasketInfo" style="display: none;">
-                        <div class="titlebck" style="text-align: center;">Sipariş Özeti</div>
-                        <p>Ürün Adeti</p>
-                        <p><span id="spnQuantity" class="adt">0</span></p>
-                        <hr class="hrr">
-                        <p>Ürün Tutarı</p>
-                        <p><span class="adt" id="spnTotalAmount">0 ₺</span></p>
-                        <hr class="hrr">
-                        <p>Kargo Tutarı</p>
-                        <p><span class="adt" id="spnShippingInformation">...</span></p>
-                        <a id="lnkAddOrder" href="#" class="btn disabled" onclick="CheckCampaign();">SATIN AL<i
-                                class="fa fa-check btnico"></i></a>
+                    <div class="col-md-3">
+                        <div class="siparis-ozeti" id="miktar">
+                            <div class="titlebck" style="text-align: center;">Sipariş Özeti</div>
+                            <p>Ürün Adeti</p>
+                            <p><span class="adt">{{miktari}}</span></p>
+                            <hr class="hrr">
+                            <p>Ürün Tutarı</p>
+                            <p><span class="adt" id="spnTotalAmount">{{miktari*19.44}} TL</span></p>
+                            <hr class="hrr">
+                            <p>Kargo Tutarı</p>
+                            <p><span class="adt" id="spnShippingInformation">Kargo Ücretsiz</span></p>
+                            <a id="lnkAddOrder" href="#" class="btn" onclick="CheckCampaign();">SATIN AL<i
+                                    class="fa fa-check btnico"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <section class="ilhamBolum clearfix" style="margin-left: 88px; width: 1174px;">
-        <div>
-            <div class="col-lg-12">
-                <h4 class="section-title">Aşağıdaki ürünlerden ekleyerek, ücretsiz kargo fırsatını yakalayabilirsiniz.</h4>
-            </div>
-            <div class="ayirici col-lg-12 "></div>
-            <div class="clearfix"></div>
-            <div class="urunBlogu clearfix" style="background-color: white; padding-top: 10px; padding-bottom: 10px;">
-                <div class="govdeKitap">
-                    <div class="cikintiBlogu">
-                        <div class="kitaplar">
-                            <div>
-                                <div class="kitapCerceve clearfix sekil">
-                                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" id="urunSayfasiKitaplari3">
-                                        <div class="kitapIcerik" style="height: 430px !important;">
-                                            <div class="prod">
-                                                <a style="text-decoration: none !important;"
-                                                    href="#kendine-hos-geldin"></a>
+        <section class="ilhamBolum clearfix" style="margin-left: 88px; width: 1174px;">
+            <div>
+                <div class="col-lg-12">
+                    <h4 class="section-title">Aşağıdaki ürünlerden ekleyerek, ücretsiz kargo fırsatını
+                        yakalayabilirsiniz.</h4>
+                </div>
+                <div class="ayirici col-lg-12 "></div>
+                <div class="clearfix"></div>
+                <div class="urunBlogu clearfix"
+                    style="background-color: white; padding-top: 10px; padding-bottom: 10px;">
+                    <div class="govdeKitap">
+                        <div class="cikintiBlogu">
+                            <div class="kitaplar">
+                                <div>
+                                    <div class="kitapCerceve clearfix sekil">
+                                        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3" id="urunSayfasiKitaplari3">
+                                            <div class="kitapIcerik" style="height: 430px !important;">
                                                 <div class="prod">
                                                     <a style="text-decoration: none !important;"
-                                                        href="urun.html">
-                                                        <div class="pr">
-                                                            <span class="resimWrap resimWrap-gorunur"
-                                                                style="width:145px;">
-                                                                <img style="display: block;" width="145" class="mx"
-                                                                    alt="Kendine Hoş Geldin"
-                                                                    src="resimler/big-kendine-hos-geldin.jpg">
-                                                            </span></div>
-                                                    </a></div>
-                                                <a style="text-decoration: none !important;" href="urun.html">
-                                                    <h5 style="height: 32px;
+                                                        href="#kendine-hos-geldin"></a>
+                                                    <div class="prod">
+                                                        <a style="text-decoration: none !important;" href="urun.html">
+                                                            <div class="pr">
+                                                                <span class="resimWrap resimWrap-gorunur"
+                                                                    style="width:145px;">
+                                                                    <img style="display: block;" width="145" class="mx"
+                                                                        alt="Kendine Hoş Geldin"
+                                                                        src="resimler/big-kendine-hos-geldin.jpg">
+                                                                </span></div>
+                                                        </a></div>
+                                                    <a style="text-decoration: none !important;" href="urun.html">
+                                                        <h5 style="height: 32px;
                                                                                 color: #6f6d6e;
                                                                                 font-family: verdana;
                                                                                 font-weight: 300;
@@ -297,118 +347,119 @@
                                                                                 text-decoration: none !important;
                                                                                 padding-left: 3px;
                                                                                 padding-right: 3px;">
-                                                        {{object.kitapAdi}}</h5>
-                                                </a>
-                                                <h6 style="
+                                                            {{object.kitapAdi}}</h5>
+                                                    </a>
+                                                    <h6 style="
                                                                             height: 13px;
                                                                             font-size: 10px;
                                                                             margin-top: 5px;
                                                                             ">
-                                                    <span><a href="#">
-                                                            <span>{{object.kitapYazar}}</span></a></span>
-                                                </h6>
-                                                <h6 style="
+                                                        <span><a href="#">
+                                                                <span>{{object.kitapYazar}}</span></a></span>
+                                                    </h6>
+                                                    <h6 style="
                                                                             height: 13px;
                                                                             font-size: 10px;
                                                                             margin-top: 5px;
                                                                             ">
-                                                    <span><a href="#">
-                                                            <span>{{object.kitapYayinEvi}}</span></a></span>
-                                                </h6>
-                                                <div class="yildizlar clearfix">
-                                                    <div class="input select oyYildiz" style="margin-left: 15%;">
-                                                        <select class="slcVote" style="display: none;">
-                                                            <option value="1">1
-                                                            </option>
-                                                            <option value="2">2
-                                                            </option>
-                                                            <option selected="" value="3">3
-                                                            </option>
-                                                            <option value="4">4
-                                                            </option>
-                                                            <option value="5">5
-                                                            </option>
-                                                        </select>
-                                                        <div class="oy-Sembol">
-                                                            <a href="#" data-rating-value="1" data-rating-text="1"
-                                                                class="oy-Secilen"><span></span></a><a href="#"
-                                                                data-rating-value="2" data-rating-text="2"
-                                                                class="oy-Secilen"><span></span></a><a href="#"
-                                                                data-rating-value="3" data-rating-text="3"
-                                                                class="oy-Secilen"><span></span></a><a href="#"
-                                                                data-rating-value="4" data-rating-text="4"
-                                                                class="br-current oy-Secilen"><span></span></a><a
-                                                                href="#" data-rating-value="5" data-rating-text="5"
-                                                                class=""><span></span></a>
-                                                        </div>
+                                                        <span><a href="#">
+                                                                <span>{{object.kitapYayinEvi}}</span></a></span>
+                                                    </h6>
+                                                    <div class="yildizlar clearfix">
+                                                        <div class="input select oyYildiz" style="margin-left: 15%;">
+                                                            <select class="slcVote" style="display: none;">
+                                                                <option value="1">1
+                                                                </option>
+                                                                <option value="2">2
+                                                                </option>
+                                                                <option selected="" value="3">3
+                                                                </option>
+                                                                <option value="4">4
+                                                                </option>
+                                                                <option value="5">5
+                                                                </option>
+                                                            </select>
+                                                            <div class="oy-Sembol">
+                                                                <a href="#" data-rating-value="1" data-rating-text="1"
+                                                                    class="oy-Secilen"><span></span></a><a href="#"
+                                                                    data-rating-value="2" data-rating-text="2"
+                                                                    class="oy-Secilen"><span></span></a><a href="#"
+                                                                    data-rating-value="3" data-rating-text="3"
+                                                                    class="oy-Secilen"><span></span></a><a href="#"
+                                                                    data-rating-value="4" data-rating-text="4"
+                                                                    class="br-current oy-Secilen"><span></span></a><a
+                                                                    href="#" data-rating-value="5" data-rating-text="5"
+                                                                    class=""><span></span></a>
+                                                            </div>
 
+                                                        </div>
+                                                    </div>
+                                                    <span
+                                                        class="yuzde">%{{object.kitapYuzde}}<span>indirim</span></span>
+                                                    <div class="top-eksi"><span class="eski-fiyat">{{object.kitapFiyat}}
+                                                            TL</span>
+                                                        <span class="yeniFiyat">{{object.kitapIndirimliFiyat}}
+                                                            TL</span>
                                                     </div>
                                                 </div>
-                                                <span class="yuzde">%{{object.kitapYuzde}}<span>indirim</span></span>
-                                                <div class="top-eksi"><span class="eski-fiyat">{{object.kitapFiyat}}
-                                                        TL</span>
-                                                    <span class="yeniFiyat">{{object.kitapIndirimliFiyat}}
-                                                        TL</span>
-                                                </div>
-                                            </div>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-    </section>
-    <div class="clearfix"></div>
-    <!--footerın Üstü-->
-    <div style="margin-top: 20px;
+        </section>
+        <div class="clearfix"></div>
+        <!--footerın Üstü-->
+        <div style="margin-top: 20px;
                                         background-color: #ececec;
                                         width: 1400px;
                                         padding-top: 40px;
                                         padding-bottom: 40px;">
-        <footer class="bilgi-altbilgi">
-            <div class="container">
-            </div>
-        </footer>
-        <footer class="alt-altbilgi">
-            <div class="container">
-                <div class="col-sm-3" style="margin-top: 10px;">
-                    <a href="index.html" title="Okuoku.com">
-                        <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
-                    </a>
+            <footer class="bilgi-altbilgi">
+                <div class="container">
                 </div>
-                <div class="hizli-erisim">
-                    <ul>
-                        <li style="color:#337ab7"><a><i class="fa fa-barcode"></i>Orjinal
-                                Ürün</a></li>
-                        <li style="color:#337ab7"><a><i class="fa fa-check"></i>Güvenli
-                                Ödeme</a></li>
-                        <li style="color:#337ab7"><a><i class="fa fa-lock"></i>Güvenli
-                                Alışveriş</a></li>
-                        <li style="color:#337ab7"><a href="#siparis"><i class="fa fa-bars"></i>Sipariş
-                                Takibi</a></li>
-                    </ul>
+            </footer>
+            <footer class="alt-altbilgi">
+                <div class="container">
+                    <div class="col-sm-3" style="margin-top: 10px;">
+                        <a href="index.html" title="Okuoku.com">
+                            <img style="padding-top: 18px;" src="resimler/logo.png" alt="Logo" />
+                        </a>
+                    </div>
+                    <div class="hizli-erisim">
+                        <ul>
+                            <li style="color:#337ab7"><a><i class="fa fa-barcode"></i>Orjinal
+                                    Ürün</a></li>
+                            <li style="color:#337ab7"><a><i class="fa fa-check"></i>Güvenli
+                                    Ödeme</a></li>
+                            <li style="color:#337ab7"><a><i class="fa fa-lock"></i>Güvenli
+                                    Alışveriş</a></li>
+                            <li style="color:#337ab7"><a href="#siparis"><i class="fa fa-bars"></i>Sipariş
+                                    Takibi</a></li>
+                        </ul>
+                    </div>
+                    <div class="sosyal-butonlar">
+                        <h4>Sosyal Medya</h4>
+                        <ul style="margin-left: 82%;">
+                            <li><a target="_blank" href="https://www.facebook.com/okuoku1">
+                                    <img class="img-responsive" src="resimler/facebook.png" alt="icon" width="32"
+                                        height="32" /></a></li>
+                            <li><a target="_blank" href="https://twitter.com/okuokucom">
+                                    <img class="img-responsive" src="resimler/twitter.png" alt="icon" width="32"
+                                        height="32" /></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/okuoku1">
+                                    <img class="img-responsive" src="resimler/instagram.png" alt="icon" width="32"
+                                        height="32" /></a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="sosyal-butonlar">
-                    <h4>Sosyal Medya</h4>
-                    <ul style="margin-left: 82%;">
-                        <li><a target="_blank" href="https://www.facebook.com/okuoku1">
-                                <img class="img-responsive" src="resimler/facebook.png" alt="icon" width="32"
-                                    height="32" /></a></li>
-                        <li><a target="_blank" href="https://twitter.com/okuokucom">
-                                <img class="img-responsive" src="resimler/twitter.png" alt="icon" width="32"
-                                    height="32" /></a></li>
-                        <li><a target="_blank" href="https://www.instagram.com/okuoku1">
-                                <img class="img-responsive" src="resimler/instagram.png" alt="icon" width="32"
-                                    height="32" /></a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+            </footer>
 
-    </div>
+        </div>
 
-    <script src="index.js"></script>
+        <script src="index.js"></script>
 
-    </form>
+        </form>
     </div>
 </body>
 

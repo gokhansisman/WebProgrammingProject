@@ -1,3 +1,4 @@
+
 new Vue({
   el: '#kitap10',
   data: {
@@ -140,7 +141,6 @@ new Vue({
   }
 });
 
-
 new Vue({
   el: '#Yazarfiltre',
   data: {
@@ -232,6 +232,7 @@ new Vue({
     }
   }
 });
+
 var adet = new Vue({
   el: '#app',
   data: { 
@@ -251,6 +252,30 @@ var adet = new Vue({
   computed: {
     output() { // Output for computed property!
       return this.counter >= 10 ? '10 or more' : 'Less than 10';
+    }
+  }
+});
+
+var sayiArttirma = new Vue({
+  el: 'sayiArttirma',
+  data: { 
+    sayi: 0 // Initial Value 
+  },
+  created(){
+    this.sayi=localStorage.getItem('Urun Sayisi')
+  },
+  methods: {
+    increaseAdet(increaseLimit) { // Increase
+      if (this.sayi < increaseLimit) this.sayi++;
+    },
+    decreaseAdet(decreaseLimit) { // Decrease
+      if (this.sayi > decreaseLimit) this.sayi--;
+    }, 
+    resetAdet() { // Reset
+      this.sayi = 0;
+    },
+    guncelleAdet(){
+      localStorage.setItem('Urun Sayisi',this.sayi)
     }
   }
 });
@@ -307,6 +332,21 @@ new Vue({
   }
 });
 
+var miktar = new Vue({
+  el: '#miktar',
+  data: {
+    miktari: 0
+  },
+  created(){
+    this.miktari=localStorage.getItem('Urun Sayisi')
+  },
+  methods:{
+    guncelle(){
+      this.miktari=localStorage.getItem('Urun Sayisi')
+    }
+  }
+});
+
 var app5 = new Vue({
   el: '#sepet',
   data: {
@@ -315,10 +355,11 @@ var app5 = new Vue({
     counter:0
   },
   methods: {
-    ekle: function () {
+    ekle() {
       this.message = 'SEPETE EKLENDI',
       this.tiklandiMi =true,
       app6.Arttır()
+      
     }
   }
 })
@@ -327,12 +368,56 @@ var app6 = new Vue({
   data: {
     counter:0
   },
+  created(){
+    this.counter=localStorage.getItem('Urun Sayisi')
+  },
   methods: {
-    Arttır: function () {
-      this.counter = adet.counter;
+    Arttır(){
+      this.counter = adet.counter,
+      localStorage.setItem('Urun Sayisi',this.counter)
     }
   }
 })
+var sepetAfter = new Vue({
+  el: '#sepetAfter',
+  data: {
+    counter:0
+  },
+  created(){
+    this.counter = localStorage.getItem('Urun Sayisi')
+  }
+})
+var sepetBosMu = new Vue({
+  el: '#sepetBosMu',
+  data: {
+    seen: false
+  },created(){
+    if(localStorage.getItem('Urun Sayisi')==0) {
+      this.seen=true
+    }
+  }
+})
+
+
+var sepetDoluMu = new Vue({
+  el: '#sepetDoluMu',
+  data: {
+    seen: false
+  },created(){
+    if(localStorage.getItem('Urun Sayisi')!=0) {
+      this.seen=true
+    }
+  },
+  methods:{
+    sepetiSil(){
+      localStorage.setItem('Urun Sayisi',0),
+      this.seen=false
+    }
+  }
+});
+
+
+
 
 var slideIndex = 1;
 showDivs(slideIndex);
